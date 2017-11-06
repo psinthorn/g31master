@@ -4,11 +4,11 @@
   <!--<pre>{{ item | json }}</pre>-->
 <div class="container">
 
-    <h5>ข้อมูลบัตรประจำตัวประชาชน</h5>
+    <h4>1.ข้อมูลบัตรประจำตัวประชาชน</h4>
     <hr>
 <div class="col-sm-12 col-md-12 col-lg-12">    
 
-
+          <br>
           <div class="row"> 
             <div class="col-sm-12 col-md-4 col-lg-4">
               <p class="text-secondary">เลขประจำตัวประชาชน</p>
@@ -43,7 +43,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <p class="text-secondary">ที่อยู่</p>
-                <textarea class="form-control" readonly>{{ item.individual.address }}</textarea>
+                <textarea class="form-control" readonly>{{ item.individual.personData.address }}</textarea>
             </div>   
           </div>     
           <p></p>   
@@ -67,9 +67,114 @@
   </div>    
   <br>
   <br>
-   <h5>ข้อมูลติดต่อ</h5>
+
+   <h4>2.ข้อมูลติดต่อ</h4>
+    <hr>
+       <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <p class="text-secondary">ที่อยู่</p>
+                <textarea class="form-control" readonly>{{ item.individual.address }}</textarea>
+            </div>   
+        </div>  
+
+      <br>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+                <p class="text-secondary">ชื่อเรียก</p>
+                <input type="text" class="form-control" value="{{ item.individual.contact.alias }}" readonly>
+        </div>  
+         <div class="col-sm-12 col-md-4 col-lg-4">
+                <p class="text-secondary">ตำแหน่ง</p>
+                <input type="text" class="form-control" value="{{ item.individual.contact.position }}" readonly>
+        </div>  
+         <div class="col-sm-12 col-md-4 col-lg-4">
+               
+        </div>  
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+                <p class="text-secondary">อีเมล</p>
+                <input type="text" class="form-control" value="{{ item.individual.contact.email }}" readonly>
+        </div>  
+         <div class="col-sm-12 col-md-4 col-lg-4">
+                <p class="text-secondary">ไลน์ไอดี</p>
+                <input type="text" class="form-control" value="{{ item.individual.contact.lineId }}" readonly>
+        </div>  
+        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+        
+      </div>
+
+      <br>
+      <div class="row">
+         <div class="col-sm-12 col-md-12 col-lg-12">
+                <p class="text-secondary">เบอร์โทรติดต่อ</p>
+
+                <div class="col-sm-12 col-md- col-lg-4" *ngFor="let phone of item.individual.contact.phones" >
+                  <div class="row">
+
+                     
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" value="{{ phone.phone}}" readonly>   
+                      </div>
+
+                       <div class="col-md-1" >
+                        <a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
+                        <mat-icon>phone</mat-icon></a>  
+
+                      </div> 
+                      
+                  </div>
+                </div>               
+        </div> 
+
+
+
+      </div>
+
+
+       <br>
+  <br>
+
+   <h4>3.ข้อมูลบัญชีธนาคาร</h4>
     <hr>
 
+      <div *ngFor="let bankAccount of item.individual.bankAccounts; let i=index"> 
+
+        <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                    <p class="text-secondary">บัญชี</p>
+                    <input type="text" class="form-control" value="{{ i +1}}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-2 col-lg-2">
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">เลขที่บัญชี</p>
+                    <input type="text" class="form-control" value="{{ bankAccount.code }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">ชื่อบัญชี</p>
+                    <input type="text" class="form-control" value="{{ bankAccount.name }}" readonly>        
+            </div>  
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">ประเภทบัญชี </p>
+                    <input type="text" class="form-control" value="{{ bankAccount.category }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">ธนาคาร</p>
+                    <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">สาขา</p>
+                    <input type="text" class="form-control" value="{{ bankAccount.branch }}" readonly>        
+            </div>  
+        </div>
+
+      </div>
 
 
 </div>
