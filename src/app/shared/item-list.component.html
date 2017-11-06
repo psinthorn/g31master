@@ -1,0 +1,37 @@
+<div fxLayout="column" class="cp-container">
+  <nav fxLayout="row" fxLayout.xs="column"
+    class="cp-navigation" [ngClass.xs]="['cl-thin']">
+    <search-term *ngIf="metaData?.searchable"></search-term>
+    <div fxFlex.gt-xs>
+      <a mat-button *ngFor="let linkEntry of links | entry"
+        [color]="actionMeta(linkEntry.key).color"
+        [routerLink]="linkEntry.key">
+        <mat-icon>{{ actionMeta(linkEntry.key).icon }}</mat-icon>
+        <span>{{ actionMeta(linkEntry.key).label }}</span>
+      </a>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <pagination *ngIf="metaData?.pgData" [pgData]="metaData?.pgData"></pagination>
+      <navigation-back *ngIf="backable"></navigation-back>
+    </div>
+  </nav>
+  <div fxLayout="row" fxLayoutAlign="end center"
+    class="cp-global-actions">
+    <ng-template ngFor let-action [ngForOf]="metaData?.actions">
+      <a *ngIf="!operators[action]" mat-fab
+        [color]="actionMeta(action).color"
+        [routerLink]="action">
+        <mat-icon>{{ actionMeta(action).icon }}</mat-icon>
+      </a>
+      <button *ngIf="operators[action]" type="button" mat-fab
+        [color]="actionMeta(action).color"
+        (click)="operators[action]()">
+        <mat-icon>{{ actionMeta(action).icon }}</mat-icon>
+      </button>
+    </ng-template>
+  </div>
+  <div fxFlex class="cp-content">
+    <ng-content></ng-content>
+    <div class="cp-bottom-dummy"></div>
+  </div>
+</div>

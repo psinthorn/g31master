@@ -1,0 +1,27 @@
+<div>
+  <mat-form-field class="cp-search">
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-placeholder>{{ label }}</mat-placeholder>
+    <input type="text" matInput [formControl]="searchControl"
+      [matAutocomplete]="itemsAutoComplete"
+      (focus)="$event.target.select()" (blur)="reset(); markAsTouched();" />
+    <button matSuffix type="button" mat-icon-button color="warn"
+      *ngIf="value" (click)="clear()"
+      matTooltip="clear">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <mat-error>{{
+      (searchControl.errors)?
+        (
+          (searchControl.errors.errorMessage)?
+            searchControl.errors.errorMessage :
+          (searchControl.errors.required)?
+            'required' :
+          (searchControl.errors|json)
+        )
+      :
+        ''
+    }}</mat-error>
+  </mat-form-field>
+  <!--<ng-content></ng-content>-->
+</div>

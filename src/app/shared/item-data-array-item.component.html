@@ -1,0 +1,17 @@
+<div fxLayout="column">
+  <div [@actionBarContainerState]="layout">
+    <div [@actionBarState]="layout" class="cp-item-action-bar"
+      fxlayout="row" fxLayoutAlign="center center">
+      <h4 class="cp-item-index" fxFlex="32px">{{ index + 1 }}</h4>
+      <div fxFlex></div>
+      <button type="button" mat-icon-button color="warn" [disabled]="unremovable"
+        (click)="itemDataArray.removeItem(index)">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div [@contentState]="layout">
+    <ng-content></ng-content>
+  </div>
+  <mat-divider *ngIf="divider"></mat-divider>
+</div>

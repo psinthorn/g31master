@@ -1,0 +1,77 @@
+import { NgModule } from '@angular/core';
+
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  //OverlayModule,
+  //PortalModule,
+  //RtlModule,
+  //StyleModule,
+  //A11yModule,
+  //PlatformModule,
+  MatCommonModule,
+  //ObserveContentModule
+} from '@angular/material';
+
+const MATERIAL_MODULES = [
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  //OverlayModule,
+  //PortalModule,
+  //RtlModule,
+  //StyleModule,
+  //A11yModule,
+  //PlatformModule,
+  MatCommonModule,
+  //ObserveContentModule
+];
+
+@NgModule({
+  imports: MATERIAL_MODULES,
+  exports: MATERIAL_MODULES
+})
+export class CustomMaterialModule {}

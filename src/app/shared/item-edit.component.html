@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" (submit)="save()" fxLayout="column"
+  class="cp-container" [ngClass.xs]="['cl-thin']">
+  <div class="cp-form-data">
+    <ng-content></ng-content>
+  </div>
+  <div fxFlex="1 0 24px"></div>
+  <div fxLayout="row" class="cp-form-actions">
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button type="submit" mat-raised-button color="primary"
+        [disabled]="formPadding">
+        <mat-icon *ngIf="!formPadding">save</mat-icon>
+        <mat-spinner color="warn" *ngIf="formPadding"></mat-spinner>
+        <span>Save</span>
+      </button>
+    </div>
+    <div fxFlex></div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button type="button" mat-raised-button color="accent" navigationBack
+        [disabled]="formPadding">
+        <mat-icon>cancel</mat-icon>
+        <span>Cancel</span>
+      </button>
+    </div>
+  </div>
+</form>

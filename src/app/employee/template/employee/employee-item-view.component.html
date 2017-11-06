@@ -1,0 +1,82 @@
+
+
+<cs-data-view *ngIf="item" i3eParentProcessor>
+  <!--<pre>{{ item | json }}</pre>-->
+<div class="container">
+
+    <h5>ข้อมูลบัตรประจำตัวประชาชน</h5>
+    <hr>
+<div class="col-sm-12 col-md-12 col-lg-12">    
+
+
+          <div class="row"> 
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <p class="text-secondary">เลขประจำตัวประชาชน</p>
+              <input type="text" class="form-control" value="{{ item.individual.personData.code }}" readonly>
+            </div>
+          </div>  
+          <br>
+
+          <div class="row">
+
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <p class="text-secondary">ชื่อ-นามสกุล</p>
+                <input type="text" class="form-control" value="{{ item.individual.personData.initname }} {{ item.individual.personData.firstname }} {{ item.individual.personData.lastname }}" readonly>
+            </div> 
+
+             <div class="col-sm-12 col-md-2 col-lg-2">
+                <p class="text-secondary">วันเกิด</p>
+                <input type="text" class="form-control" value="{{ item.individual.personData.birthDate }}" readonly>
+            </div> 
+
+             <div class="col-sm-12 col-md-2 col-lg-2">
+               <p class="text-secondary">ศาสนา</p>
+                <input type="text" class="form-control" value="{{ item.individual.personData.religious }}" readonly>
+            </div> 
+
+
+
+          </div>  
+
+          <br>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <p class="text-secondary">ที่อยู่</p>
+                <textarea class="form-control" readonly>{{ item.individual.address }}</textarea>
+            </div>   
+          </div>     
+          <p></p>   
+          <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <p class="text-secondary">วันออกบัตร</p>
+                <input type="text" class="form-control" value="{{ item.individual.personData.issueDate }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <p class="text-secondary">วันหมดอายุ</p>
+                <input type="text" class="form-control" value="{{ item.individual.personData.expiredDate }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-6 col-lg-6">
+               
+            </div>  
+            
+          </div>   
+
+           
+  
+  </div>    
+  <br>
+  <br>
+   <h5>ข้อมูลติดต่อ</h5>
+    <hr>
+
+
+
+</div>
+
+</cs-data-view>
+
+
+
+
+

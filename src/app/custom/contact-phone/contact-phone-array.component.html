@@ -1,0 +1,5 @@
+<item-data-array [formGroup]="formArray" [createItemCallback]="createItem" required>
+  <item-data-array-item *ngFor="let item of formArray.controls; let i=index" [index]="i" [unremovable]="item.get('default').value">
+    <cs-contact-phone [formGroupName]="i" (defaultChange)="setDefault(i)"></cs-contact-phone>
+  </item-data-array-item>
+</item-data-array>

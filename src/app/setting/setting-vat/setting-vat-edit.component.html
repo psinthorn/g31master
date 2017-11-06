@@ -1,0 +1,9 @@
+<cs-data-form *ngIf="form"  i3eParentProcessor [formGroup]="form">
+  <mat-form-field style="width: 200px;">
+    <input type="number" matInput formControlName="vat" placeholder="Vat" required />
+    <span matSuffix>%</span>
+    <mat-error>
+      <cs-form-control-error></cs-form-control-error>
+    </mat-error>
+  </mat-form-field>
+</cs-data-form>

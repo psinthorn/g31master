@@ -1,0 +1,43 @@
+@import './data-less-defined.less';
+
+:host{
+  display: block;
+
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.cp-container{
+  height: 100%;
+}
+
+.cp-navigation {
+  display: block;
+  padding: 4px 16px;
+
+  &.cl-thin {
+    padding-left: @thin-padding;
+    padding-right: @thin-padding;
+  }
+}
+
+.cp-global-actions {
+  position: absolute;
+  z-index: 999;
+  box-sizing: border-box;
+
+  height: 0px;
+  width: 100%;
+
+  bottom: 40px;
+  padding: 0px 24px;
+}
+
+.cp-content {
+  height: 100%;
+  overflow-y: scroll;
+
+  .cp-bottom-dummy{
+    height: 72px;
+  }
+}

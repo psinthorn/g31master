@@ -1,0 +1,63 @@
+<div [formGroup]="formGroup">
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="180px" fxFlex.xs>
+      <input matInput formControlName="code" placeholder="เลขประจำตัวประชาชน" formControlHtmlError />
+      <mat-hint align="end">{{ (formGroup.value.code)? formGroup.value.code.length : 0 }} / 13หลัก</mat-hint>
+      <mat-error>
+        <cs-form-control-error [messageMap]="{pattern: 'ป้อนได้เฉพาะตัวเลข', maxLength: 'ไม่เกิน 13 หลัก'}"></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="120px" fxFlex.xs>
+      <input matInput formControlName="initname" placeholder="คำนำหน้าชื่อ" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="firstname" placeholder="ชื่อ" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="lastname" placeholder="นามสกุล" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="160px" fxFlex.xs>
+      <input type="date" matInput formControlName="birthDate" placeholder="วันเกิด" style="width: 100%;" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="religious" placeholder="ศาสนา" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <cs-address formGroupName="address"></cs-address>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="160px" fxFlex.xs>
+      <input type="date" matInput formControlName="issueDate" placeholder="วันออกบัตร" style="width: 100%;" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="160px" fxFlex.xs>
+      <input type="date" matInput formControlName="expiredDate" placeholder="วันบัตรหมดอายุ" style="width: 100%;" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+</div>

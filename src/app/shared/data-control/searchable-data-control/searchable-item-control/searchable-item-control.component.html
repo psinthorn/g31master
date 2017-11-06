@@ -1,0 +1,19 @@
+<mat-form-field class="cp-search">
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-placeholder>{{ placeholder }}</mat-placeholder>
+  <input type="text" matInput [readonly]="readonly"
+    [formControl]="control" [matAutocomplete]="autocomplete"
+    (focus)="$event.target.select()" (blur)="reset(); markAsTouched();" />
+  <button matSuffix type="button" mat-icon-button color="warn"
+    *ngIf="value" (click)="clear()"
+    matTooltip="clear">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <button matSuffix type="button" mat-icon-button color="primary"
+    *ngIf="newTemplate && !value" [csDialogOpen]="newTemplate" (dialogHandler)="setNewTemplateHandler($event)"
+    matTooltip="new">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-error><ng-content select=".cs-error-message"></ng-content></mat-error>
+  <mat-hint><ng-content select=".cs-hint-message"></ng-content></mat-hint>
+</mat-form-field>

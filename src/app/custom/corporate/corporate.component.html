@@ -1,0 +1,41 @@
+<div [formGroup]="formGroup">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="180px" fxFlex.xs>
+      <input matInput formControlName="code" placeholder="เลขทะเบียนนิติบุคคล" formControlHtmlError />
+      <mat-hint align="end">{{ (formGroup.value.code)? formGroup.value.code.length : 0 }} / 13หลัก</mat-hint>
+      <mat-error>
+        <cs-form-control-error [messageMap]="{pattern: 'ป้อนได้เฉพาะตัวเลข', maxLength: 'ไม่เกิน 13 หลัก'}"></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="120px" fxFlex.xs>
+      <input matInput formControlName="category" placeholder="ประเภท" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <input matInput formControlName="name" placeholder="ชื่อนิติบุคคล" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="160px" fxFlex.xs="auto">
+      <input type="date" matInput formControlName="registrationDate" placeholder="วันที่จดทะเบียน" style="width: 100%;" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-checkbox fxFlex="160px" fxFlex.xs formControlName="main">สำนักงานใหญ่</mat-checkbox>
+    <mat-form-field fxFlex="120px" fxFlex.xs>
+      <input matInput formControlName="branch" placeholder="สาขา/ลำดับ"
+        [required]="!formGroup.get('main').value" />
+        <mat-error>
+          <cs-form-control-error></cs-form-control-error>
+        </mat-error>
+    </mat-form-field>
+  </div>
+
+  <cs-address formGroupName="address"></cs-address>
+</div>

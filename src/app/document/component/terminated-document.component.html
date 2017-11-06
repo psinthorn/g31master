@@ -1,0 +1,8 @@
+<cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
+  <mat-form-field fxFlex>
+    <textarea matInput formControlName="description" placeholder="รายละเอียด/เหตุผล" rows="3" required ></textarea>
+    <mat-error>
+      <cs-form-control-error></cs-form-control-error>
+    </mat-error>
+  </mat-form-field>
+</cs-data-form>

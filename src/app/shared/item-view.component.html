@@ -1,0 +1,28 @@
+<div class="cp-container" fxLayout="column">
+  <nav fxLayout="row" fxLayout.xs="column"
+    class="cp-navigation" [ngClass.xs]="['cl-thin']">
+    <div fxFlexOrder.xs="2">
+      <ng-template ngFor let-action [ngForOf]="metaData?.actions">
+        <a *ngIf="!operators[action]" mat-button
+          [color]="actionMeta(action).color"
+          [routerLink]="action">
+          <mat-icon>{{ actionMeta(action).icon }}</mat-icon>
+          <span>{{ actionMeta(action).label }}</span>
+        </a>
+        <button *ngIf="operators[action]" type="button" mat-button
+          [color]="actionMeta(action).color"
+          (click)="operators[action]()">
+          <mat-icon>{{ actionMeta(action).icon }}</mat-icon>
+          <span>{{ actionMeta(action).label }}</span>
+        </button>
+      </ng-template>
+    </div>
+    <div fxFlex></div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxFlexOrder.xs="1">
+      <navigation-back></navigation-back>
+    </div>
+  </nav>
+  <div fxFlex class="cp-content" [ngClass.xs]="['cl-thin']">
+    <ng-content></ng-content>
+  </div>
+</div>

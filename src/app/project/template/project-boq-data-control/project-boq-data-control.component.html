@@ -1,0 +1,12 @@
+<div class="component-container">
+  <div fxLayout="row" fxLayout.xs="column">
+    <cs-searchable-control fxFlex fxFlex.xs="0 0 auto"
+      [formControl]="formControl" [itemsAutoComplete]="itemsAutoComplete"
+      labelWith="ต้นทุนกิจกรรม"
+      (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+      <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayWith">
+        <mat-option *ngFor="let item of items$ | async" [value]="item">{{ displayWith(item) }}</mat-option>
+      </mat-autocomplete>
+    </cs-searchable-control>
+  </div>
+</div>

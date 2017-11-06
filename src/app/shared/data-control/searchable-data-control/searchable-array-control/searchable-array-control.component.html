@@ -1,0 +1,18 @@
+<mat-form-field class="cp-search">
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-placeholder>{{ placeholder }}</mat-placeholder>
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let item of value" [selectable]="!readonly"
+      [removable]="!readonly" (remove)="remove(item)">
+      <span>{{ item }}</span>
+      <mat-icon matChipRemove *ngIf="!readonly">cancel</mat-icon>
+    </mat-chip>
+    <input type="text" [matChipInputFor]="chipList" [readonly]="readonly"
+      [formControl]="control" [matAutocomplete]="autocomplete"
+      [matChipInputAddOnBlur]="false"
+      (matChipInputTokenEnd)="clear($event)"
+      (blur)="reset($event); markAsTouched();" />
+  </mat-chip-list>
+  <mat-error><ng-content select=".cs-error-message"></ng-content></mat-error>
+  <mat-hint><ng-content select=".cs-hint-message"></ng-content></mat-hint>
+</mat-form-field>

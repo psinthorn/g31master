@@ -1,0 +1,66 @@
+<div [formGroup]="formGroup">
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="alias" placeholder="ชื่อเรียก" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="position" placeholder="ตำแหน่ง" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="200px" fxFlex.xs>
+      <input matInput formControlName="email" placeholder="E-mail" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="200px" fxFlex.xs>
+      <input matInput formControlName="lineId" placeholder="Line ID" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <cs-contact-phone-array formArrayName="phones"></cs-contact-phone-array>
+
+</div>
+
+<!--
+
+<div [formGroup]="formGroup" fxLayout="column">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="alias" placeholder="ชื่อเรียก" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="position" placeholder="ตำแหน่ง" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="200px" fxFlex.xs>
+      <input matInput formControlName="email" placeholder="E-mail" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="200px" fxFlex.xs>
+      <input matInput formControlName="lineId" placeholder="Line ID" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <cs-contact-phone-array formArrayName="phones"></cs-contact-phone-array>
+</div>
+
+-->

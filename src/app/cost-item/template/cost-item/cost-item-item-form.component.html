@@ -1,0 +1,51 @@
+<cs-data-form *ngIf="form"  i3eParentProcessor [formGroup]="form" i3eObservableCacheStorage>
+
+  <cs-cost-item-type-ref-control formControlName="type" i3eObservableCache="type"></cs-cost-item-type-ref-control>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex.gt-xs="200px">
+      <span matPrefix>CI</span>
+      <input type="text" matInput formControlName="_code" placeholder="รหัสสินค้า" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs>
+      <input type="text" matInput formControlName="name" placeholder="ชื่อสินค้า" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="120px">
+      <input type="text" matInput formControlName="unit" placeholder="หน่วย" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="120px">
+      <input type="number" matInput formControlName="price" step="0.01" placeholder="ราคา/หน่วย" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row">
+    <mat-form-field fxFlex>
+      <textarea matInput formControlName="description" placeholder="รายละเอียด" rows="5"></textarea>
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row">
+    <mat-form-field fxFlex>
+      <textarea matInput formControlName="remark" placeholder="หมายเหตุ" rows="5"></textarea>
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+</cs-data-form>

@@ -1,0 +1,13 @@
+<cs-data-form *ngIf="form"  i3eParentProcessor [formGroup]="form">
+  <item-data-array formGroupName="taxs" [createItemCallback]="createItem" required style="width: 200px;">
+    <item-data-array-item *ngFor="let item of form.get('taxs').controls; let i=index" [index]="i" required>
+      <mat-form-field style="width: 100%;">
+        <input type="number" matInput [formControlName]="i" placeholder="Tax" required />
+        <span matSuffix>%</span>
+        <mat-error>
+          <cs-form-control-error></cs-form-control-error>
+        </mat-error>
+      </mat-form-field>
+    </item-data-array-item>
+  </item-data-array>
+</cs-data-form>

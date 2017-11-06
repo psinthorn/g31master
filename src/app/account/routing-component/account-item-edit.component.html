@@ -1,0 +1,11 @@
+<item-edit *ngIf="form" [metaData]="metaData" [operators]="operators"
+  [formGroup]="form">
+  <div fxLayout="row" fxLayout.xs="column">
+    <mat-form-field fxFlex="160px" fxFlex.xs>
+      <input mat([A-Z])nput formControlName="code" placeholder="Code" required />
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <input mat([A-Z])nput formControlName="name" placeholder="name" required />
+    </mat-form-field>
+  </div>
+</item-edit>

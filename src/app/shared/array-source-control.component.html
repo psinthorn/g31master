@@ -1,0 +1,18 @@
+<div class="mat-input-wrapper" fxLayout="column">
+  <mat-checkbox *ngFor="let item of source"
+    [checked]="checked(item)" (change)="change($event.checked, item)">{{ item }}</mat-checkbox>
+  <div class="mat-input-subscript-wrapper">
+    <mat-error class="mat-input-error">{{
+      (errors)?
+        (
+          (errors.errorMessage)?
+            errors.errorMessage :
+          (errors.required)?
+            'required' :
+          (errors|json)
+        )
+      :
+        ''
+    }}</mat-error>
+  </div>
+</div>

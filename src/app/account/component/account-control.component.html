@@ -1,0 +1,10 @@
+<cs-searchable-item-control [formControl]="control" [freeEnter]="freeEnter"
+  [autocomplete]="itemsAutoComplete" [readonly]="readonly"
+  [placeholder]="placeholder || 'account' + ((value?.code)? ' (' + value.code + ')' : '')"
+  (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+  <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let item of items$ | async" [value]="item">
+      <span>{{ item }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</cs-searchable-item-control>

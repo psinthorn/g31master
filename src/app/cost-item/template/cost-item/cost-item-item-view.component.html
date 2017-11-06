@@ -1,0 +1,29 @@
+<cs-data-view *ngIf="item" i3eParentProcessor>
+  <div class="cl-view-display">
+    <div>
+      <label>รหัสสินค้า : </label>
+      <span>{{ item.code }}</span>
+    </div>
+    <div>
+      <label>ชื่อสินค้า : </label>
+      <span>{{ item.name }}</span>
+    </div>
+    <div>
+      <label>หน่วย : </label>
+      <span>{{ item.unit }}</span>
+    </div>
+    <div>
+      <label>ราคา/หน่วย : </label>
+      <span>{{ item.price }}</span>
+    </div>
+    <div>
+      <label>รายละเอียด : </label>
+      <span>{{ item.description }}</span>
+    </div>
+    <div>
+      <label>หมายเหตุ : </label>
+      <span>{{ item.remark }}</span>
+    </div>
+  </div>
+  <pre>{{ item | json }}</pre>
+</cs-data-view>

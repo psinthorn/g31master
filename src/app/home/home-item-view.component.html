@@ -1,0 +1,53 @@
+<cs-data-view i3eParentProcessor>
+  <pre>{{ item | json }}</pre>
+
+  <mat-form-field>
+    <input matInput [formControl]="testControl" placeholder="testControl" />
+    <mat-error>{{ testControl.errors|json }}</mat-error>
+  </mat-form-field>
+  <div myTest #myTest="myTest">{{ myTest.xxx }}</div>
+  <div>
+    <div fxLayout="column" style="border: 1px solid yellow;" *ngFor="let i of [1, 2]">
+      <div [@actionBarContainerState]="layoutState">
+        <div [@actionBarState]="layoutState" fxlayout="row" style="border: 1px solid blue;">
+          <button>1</button>
+          <div fxFlex></div>
+          <button>2</button>
+        </div>
+      </div>
+      <div [@contentState]="layoutState" fxFlex style="border: 1px solid black;">
+        <div contentEditable="true" style="width: 100%;">test</div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <mat-chip-list>
+      <mat-chip>
+        <mat-icon>search</mat-icon>
+        <span>xxx</span>
+      </mat-chip>
+      <mat-chip>Naan</mat-chip>
+      <mat-chip>Dal</mat-chip>
+        <mat-form-field mat-basic-chip>
+          <input matInput />
+        </mat-form-field>
+    </mat-chip-list>
+  </div>
+  <div fxLayout="row">
+    <div>
+      <mat-form-field>
+         <input type="text" matInput [formControl]="trigger" [matAutocomplete]="auto">
+      </mat-form-field>
+
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option.name }}
+         </mat-option>
+      </mat-autocomplete>
+    </div>
+    <div fxFlex>
+      <pre>{{ trigger.value|json }}</pre>
+    </div>
+  </div>
+</cs-data-view>

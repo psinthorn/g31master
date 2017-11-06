@@ -1,0 +1,7 @@
+<item-data-array [formGroup]="formArray" [createItemCallback]="createItem"
+  activeMedia #activeMedia="activeMedia">
+  <item-data-array-item *ngFor="let item of formArray.controls; let i=index" [index]="i"
+    [layout]="activeMedia.if('lt-xl', 'column', 'row')">
+    <cs-bank-account [formGroupName]="i"></cs-bank-account>
+  </item-data-array-item>
+</item-data-array>

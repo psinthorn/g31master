@@ -1,0 +1,17 @@
+<cs-data-form *ngIf="form"  i3eParentProcessor [formGroup]="form">
+  <div fxLayout="row" fxLayout.xs="column">
+    <mat-form-field fxFlex.gt-xs="250px">
+      <input type="text" matInput formControlName="code" placeholder="รหัสประเภทรายการต้นทุน" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFlex.gt-xs>
+      <input type="text" matInput formControlName="name" placeholder="ชื่อประเภทรายการต้นทุน" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+</cs-data-form>

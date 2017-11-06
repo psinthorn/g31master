@@ -1,0 +1,9 @@
+<mat-form-field style="width: 100%;">
+  <mat-placeholder>{{ (placeholder)? placeholder : 'ประเภทงบประมาณ' }}</mat-placeholder>
+  <mat-select [formControl]="control">
+    <mat-option *ngFor="let item of items$ | async" [value]="item.id">{{ item.name }}</mat-option>
+  </mat-select>
+  <mat-error>
+    <cs-form-control-error></cs-form-control-error>
+  </mat-error>
+</mat-form-field>

@@ -1,0 +1,28 @@
+@import './item-less-defined.less';
+
+:host{
+  display: block;
+
+  height: 100%;
+  box-sizing: border-box;
+
+  overflow-y: scroll;
+}
+
+.cp-container{
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 16px;
+
+  &.cl-thin {
+    padding-left: @thin-padding;
+    padding-right: @thin-padding;
+  }
+}
+
+.cp-form-actions {
+  &>* {
+    padding-top: @actions-spacing;
+    padding-bottom: @actions-spacing;
+  }
+}

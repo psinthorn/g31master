@@ -1,0 +1,123 @@
+<cs-data-view *ngIf="item" i3eParentProcessor>
+  <cs-section-block header="ข้อมูลใบขอซื้อ" level="3">
+    <cs-section-block header="1.ข้อมูลโครงการ" level="4" class="cl-view-display">
+      <div>
+        <label>ชื่อโครงการ : </label>
+        <span>{{ item.project }}</span>
+      </div>
+      <div>
+        <label>ที่อยู่จัดส่ง : </label>
+        <span>{{ item.project.address }}</span>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="2.ข้อมูลผู้ขอ" level="4" class="cl-view-display">
+      <div>
+        <label>พนักงาน : </label>
+        <span>{{ item.requester }}</span>
+      </div>
+      <div>
+        <label>ผู้ติดต่อ : </label>
+        <span>{{ item.contactInformation }}</span>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="3.ข้อมูลผู้ขาย/รับจ้าง/เช่า" level="4" class="cl-view-display">
+      <div>
+        <label>ผู้ขาย : </label>
+        <span>{{ item.vendor }}</span>
+      </div>
+      <div>
+        <label>ผู้ติดต่อ : </label>
+        <span>{{ item.vendorContactInformation }}</span>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="4.ข้อมูลสินค้า" level="4">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+        <div>
+          <label>วันที่ต้องการ : </label>
+          <span>{{ item.wantedDate }}</span>
+        </div>
+        <div>
+          <label>BOQ : </label>
+          <span>{{ item.boq.name }}</span>
+        </div>
+        <div>
+          <label>ประเภทรายการต้นทุน : </label>
+          <span>{{ item.budgetType.name }}</span>
+        </div>
+      </div>
+      <div>
+        <div fxHide.xs fxLayout="row">
+          <div fxFlex></div>
+          <div fxFlex="120px">ปริมาณ</div>
+          <div fxFlex="120px">ราคารวม</div>
+        </div>
+        <div *ngFor="let detail of item.details"
+          fxLayout="row" fxLayout.xs="column">
+          <div fxFlex fxFlex.lt-md="auto">
+            <div fxLayout="row" fxLayout.lt-md="column">
+              <div fxFlex fxFlex.lt-md="auto">
+                <label>รายการสินค้า</label>
+                <span>{{ detail.name }}</span>
+              </div>
+              <div fxFlex="120px" fxFlex.lt-md="auto">
+                <label>หน่วย</label>
+                <span>{{ detail.unit }}</span>
+              </div>
+              <div fxFlex="120px" fxFlex.lt-md="auto">
+                <label>ราคา/หน่วย</label>
+                <span>{{ detail.price }}</span>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column"></div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column">
+            <div fxFlex="120px" fxFlex.xs="auto">{{ detail.quantity }}</div>
+            <div fxFlex="120px" fxFlex.xs="auto">{{ (detail.price * detail.quantity).toFixed(2) }}</div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <item-data-array formArrayName="details" [createItemCallback]="createDetail" required activeMedia>
+        <item-data-array-item *ngFor="let item of form.get('details').controls; let i=index" [index]="i"
+          [layout]="row">
+          <div [formGroupName]="i" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+            <div fxLayout="column" fxFlex fxFlex.xs="auto" [style.gt-xs]="{borderRight: '1px solid black'}">
+              <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+                <cs-cost-item-control formControlName="_costItem" placeholder="รายการสินค้า{{ getCostItemPlaceholderSuffix(i) }}" freeEnter fxFlex.gt-md></cs-cost-item-control>
+                <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                  <input matInput formControlName="unit" placeholder="หน่วย" required />
+                </mat-form-field>
+                <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                  <input type="number" matInput step="0.01" formControlName="price" placeholder="ราคา/หน่วย" required />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+                <cs-project-boq-data-control formControlName="boqData" [projectBoq]="form.get('boq').value" fxFlex.gt-md></cs-project-boq-data-control>
+                <mat-form-field fxFlex.lt-md>
+                  <input matInput formControlName="remark" placeholder="หมายเหตุ" />
+                  <mat-error>
+                    <cs-form-control-error></cs-form-control-error>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+              <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                <input type="number" matInput step="0.01" formControlName="quantity" placeholder="ปริมาณ" required />
+              </mat-form-field>
+              <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                <input type="number" matInput step="0.01" formControlName="_total" readonly placeholder="ราคารวม" />
+              </mat-form-field>
+            </div>
+          </div>
+        </item-data-array-item>
+      </item-data-array>
+      -->
+    </cs-section-block>
+
+  </cs-section-block>
+  <pre>{{ item | i3eJson }}</pre>
+</cs-data-view>

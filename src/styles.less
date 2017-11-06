@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body {
+  display: block;
+
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+// force hidden
+[hidden] {
+  display: none !important;
+}
+
+// addition
+.mat-input-container {
+  mat-progress-circle{
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// material design 2 fixed
+.mat-input-container button {
+  width: auto;
+  height: auto;
+  font-size: 100%;
+  line-height: 100%;
+
+  .mat-icon{
+    line-height: 100%;
+  }
+}
+/*
+@chip-icon-size: 32px;
+.mat-chip button {
+  margin-top: -8px;
+  margin-bottom: -8px;
+  margin-right: -12px;
+  width: @chip-icon-size;
+  height: @chip-icon-size;
+  line-height: @chip-icon-size;
+}
+*/
+@icon-size: 24px;
+button .mat-spinner {
+  display: inline-block !important;
+  width: @icon-size !important;
+  height: @icon-size !important;
+  line-height: @icon-size !important;
+
+  &>svg {
+    width: @icon-size !important;
+    height: @icon-size !important;
+  }
+}
+
+@loading-size: 36px;
+#app-header .cp-loading {
+  width: @loading-size !important;
+  height: @loading-size !important;
+
+  &>svg {
+    width: @loading-size !important;
+    height: @loading-size !important;
+  }
+}
+
+.mat-select-align-right {
+  .mat-select-value {
+    position: static;
+  }
+}
+
+.mat-input-like {
+  &>* {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+
+    box-sizing: border-box;
+    min-height: 66.25px;
+    padding-bottom: 20.75px;
+  }
+}
+
+.fixed-dialog-overlay {
+  .mat-dialog-container {
+    max-width: 100vw !important;
+  }
+}
+
+/*
+.component-in-md-input-table {
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+
+  vertical-align: middle;
+}
+
+.md-input-table{
+  &>*{
+    &>md-icon{
+      .component-in-md-input-table;
+    }
+
+    &>[md-icon-button]{
+      .component-in-md-input-table;
+      md-icon{
+        .component-in-md-input-table;
+      }
+    }
+  }
+}
+
+.md-button-wrapper{
+  &>md-icon{
+    line-height: 24px;
+
+    vertical-align: middle;
+  }
+}
+*/

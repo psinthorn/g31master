@@ -1,0 +1,9 @@
+<div class="cl-section">
+  <h1 *ngIf="(header && (level == 1))">{{ header }}</h1>
+  <h2 *ngIf="(header && (level == 2))">{{ header }}</h2>
+  <h3 *ngIf="(header && (level == 3))">{{ header }}</h3>
+  <h4 *ngIf="(header && (level == 4))">{{ header }}</h4>
+  <h5 *ngIf="(header && (level == 5))">{{ header }}</h5>
+  <h6 *ngIf="(header && (level == 6))">{{ header }}</h6>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,14 @@
+<div fxLayout="row">
+  <button type="button" mat-icon-button [disabled]="!pageAllowed(offset(-1))"
+    (click)="previous(true)">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <span class="cp-page-prefix">Page:&nbsp;</span>
+    <span class="cp-page-number">{{ pageDisplay() }}</span>
+  </div>
+  <button type="button" mat-icon-button [disabled]="!pageAllowed(offset(+1))"
+    (click)="next(true)">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

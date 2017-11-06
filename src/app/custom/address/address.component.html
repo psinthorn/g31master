@@ -1,0 +1,40 @@
+<div [formGroup]="formGroup">
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex>
+      <textarea matInput formControlName="address" placeholder="ที่อยู่" rows="3" required ></textarea>
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="subdistrict" placeholder="ตำบล/แขวง" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="district" placeholder="อำเภอ/เขต" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="240px" fxFlex.xs>
+      <input matInput formControlName="province" placeholder="จังหวัด" required />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex="120px" fxFlex.xs>
+      <input matInput formControlName="postalcode" placeholder="รหัสไปรษณีย์" maxlength="5" />
+      <mat-hint align="end"> {{ formGroup.value.postalcode?.length }}/ 5หลัก</mat-hint>
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+</div>

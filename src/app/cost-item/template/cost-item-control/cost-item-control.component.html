@@ -1,0 +1,14 @@
+<cs-searchable-item-control #mainControl="csSearchableItemControl" style="width: 100%;"
+  [formControl]="control" [newTemplate]="newTemplate"
+  [freeEnter]="freeEnter" [autocomplete]="itemsAutoComplete" [readonly]="readonly"
+  [placeholder]="placeholder || 'รายการสินค้า' + ((value?.code)? ' (' + value.code + ')' : '')"
+  (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+  <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let item of items$ | async" [value]="item">{{ item }}</mat-option>
+  </mat-autocomplete>
+  <div class="cs-error-message"><ng-content select=".cs-error-message"></ng-content></div>
+  <div class="cs-hint-message"><ng-content select=".cs-hint-message"></ng-content></div>
+  <ng-template #newTemplate>
+    <cs-cost-item-item-form i3eDataLoader="existing" [existingData]="null" csFormSimpleProcessor (save)="mainControl.createValue($event)"></cs-cost-item-item-form>
+  </ng-template>
+</cs-searchable-item-control>

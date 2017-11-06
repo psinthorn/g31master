@@ -1,0 +1,51 @@
+<div class="cp-container" fxLayout="column">
+  <nav fxLayout="row" fxLayout.xs="column"
+    class="cp-navigation" [ngClass.xs]="['cl-thin']">
+    <div fxFlexOrder.xs="2" fxLayout="row" fxLayoutAlign.xs="space-between">
+      <ng-template ngFor let-action [ngForOf]="processor.actions">
+        <span fxHide.xs>
+          <a *ngIf="!action.action" mat-button
+            [color]="action.color"
+            [routerLink]="action.name">
+            <mat-icon>{{ action.icon }}</mat-icon>
+            <span>{{ action.label }}</span>
+          </a>
+          <button *ngIf="action.action" type="button" mat-button
+            [color]="action.color"
+            (click)="action.action()">
+            <mat-icon>{{ action.icon }}</mat-icon>
+            <span>{{ action.label }}</span>
+          </button>
+        </span>
+        <span [fxShow]="false" fxShow.xs>
+          <a *ngIf="!action.action" mat-icon-button
+            [matTooltip]="action.label"
+            [color]="action.color"
+            [routerLink]="action.name">
+            <mat-icon>{{ action.icon }}</mat-icon>
+          </a>
+          <button *ngIf="action.action" type="button" mat-icon-button
+            [matTooltip]="action.label"
+            [color]="action.color"
+            (click)="action.action()">
+            <mat-icon>{{ action.icon }}</mat-icon>
+          </button>
+        </span>
+      </ng-template>
+      <span *ngIf="processor.links && (processor.links.length > 0)">|</span>
+      <a mat-button *ngFor="let link of processor.links"
+        [color]="link.color"
+        [routerLink]="link.name">
+        <mat-icon>{{ link.icon }}</mat-icon>
+        <span>{{ link.label }}</span>
+      </a>
+    </div>
+    <div fxFlex></div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxFlexOrder.xs="1">
+      <navigation-back></navigation-back>
+    </div>
+  </nav>
+  <div fxFlex class="cp-content" [ngClass.xs]="['cl-thin']">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="end center" fxFlexOrder.xs="1">
+  <navigation-back></navigation-back>
+</div>
+<h2>ประเภทบุคคล (Type of Person)</h2>
+<mat-nav-list>
+  <ng-template ngFor let-route [ngForOf]="routes">
+    <a mat-list-item *ngIf="route.path !== ''"
+      [routerLink]="'../' + route.path" routerLinkActive="active" replaceUrl>
+      <div mat-line>{{ (route.data)? route.data.label || route.path : route.path}}</div>
+      <div mat-line class="list-second-line">{{ route.data.description }}</div>
+    </a>
+  </ng-template>
+</mat-nav-list>

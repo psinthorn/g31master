@@ -1,0 +1,49 @@
+<mat-sidenav-container id="app-container">
+  <mat-sidenav id="app-sidenav" #sideMenu>
+    <mat-toolbar color="primary">
+      <span>Sidenav</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <ng-template ngFor let-route [ngForOf]="routes">
+        <a mat-list-item *ngIf="route.path !== ''"
+          [routerLink]="'/' + route.path" routerLinkActive="active"
+          (click)="tryCloseSideMenu()">
+          <mat-icon *ngIf="route.data?.icon" mat-list-icon>{{ route.data.icon }}</mat-icon>
+          <span>{{ getMenuLabel(route) }}</span>
+        </a>
+      </ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div id="app-content" fxLayout="column">
+    <mat-toolbar color="primary">
+      <div fxLayout="row" fxLayoutAlign="center" style="width: 100%;">
+        <button mat-icon-button *ngIf="sideMenu.mode !== 'side'"
+          (click)="sideMenu.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1 id="app-header" fxLayout="row" [ngSwitch]="componentInfo.loading == true"
+          fxLayoutAlign="center center">
+          <mat-spinner class="cp-loading" *ngSwitchCase="true" color="accent"></mat-spinner>
+          <ng-template ngSwitchDefault>
+            <span *ngFor="let text of [header]" [@changeState]>{{ header }}</span>
+          </ng-template>
+        </h1>
+        <span fxFlex fxLayoutAlign="end"></span>
+        <button mat-icon-button [mat-menu-trigger-for]="appMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #appMenu x-position="before">
+          <button mat-menu-item> Refresh </button>
+          <button mat-menu-item> Settings </button>
+          <button mat-menu-item> Help </button>
+          <button mat-menu-item disabled> Sign Out </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+    <div fxFlex class="cp-main-wraper">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</mat-sidenav-container>

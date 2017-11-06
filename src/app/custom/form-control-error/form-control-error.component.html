@@ -1,0 +1,10 @@
+<span *ngIf="errorCode" [ngSwitch]="errorCode">
+  <ng-template #lengthError>length ({{ error.actualLength }}/{{ error.requiredLength }})</ng-template>
+  <ng-container *ngSwitchCase="'minlength'">
+    <ng-container *ngIf="messageMap.minlength; else lengthError">{{ defaultMessage }}</ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'maxlength'">
+    <ng-container *ngIf="messageMap.maxlength; else lengthError">{{ defaultMessage }}</ng-container>
+  </ng-container>
+  <ng-container *ngSwitchDefault>{{ defaultMessage }}</ng-container>
+</span>

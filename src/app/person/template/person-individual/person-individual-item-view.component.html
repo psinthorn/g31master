@@ -1,0 +1,91 @@
+<cs-data-view *ngIf="item" i3eParentProcessor>
+
+  <cs-section-block header="ข้อมูลบุคคลธรรมดา" level="3">
+    <cs-section-block header="1.ข้อมูลบัตรประจำตัวประชาชน" class="cl-view-display">
+      <div>
+        <label>เลขประจำตัวประชาชน : </label>
+        <span>{{ item.personData.code }}</span>
+      </div>
+      <div>
+        <label>ชื่อ-นามสกุล : </label>
+        <span>{{ item.personData.initname }} {{ item.personData.firstname }} {{ item.personData.lastname }}</span>
+      </div>
+      <div>
+        <label>วันเกิด : </label>
+        <span>{{ item.personData.birthDate }}</span>
+      </div>
+      <div>
+        <label>ศาสนา : </label>
+        <span>{{ item.personData.religious }}</span>
+      </div>
+      <div>
+        <label>ที่อยู่ : </label>
+        <span>{{ item.personData.address }}</span>
+      </div>
+      <div>
+        <label>วันออกบัตร : </label>
+        <span>{{ item.personData.issueDate }}</span>
+      </div>
+      <div>
+        <label>วันบัตรหมดอายุ : </label>
+        <span>{{ item.personData.expiredDate }}</span>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="2.ข้อมูลติดต่อ" class="cl-view-display">
+      <div>
+        <label>ที่อยู่ปัจจุบัน : </label>
+        <span>{{ item.address }}</span>
+      </div>
+      <div>
+        <label>ชื่อเรียก : </label>
+        <span>{{ item.contact.alias }}</span>
+      </div>
+      <div>
+        <label>ตำแหน่ง : </label>
+        <span>{{ item.contact.position }}</span>
+      </div>
+      <div>
+        <label>E-mail : </label>
+        <span>{{ item.contact.email }}</span>
+      </div>
+      <div>
+        <label>Line ID : </label>
+        <span>{{ item.contact.lineId }}</span>
+      </div>
+      <div>
+        <label>เบอร์โทรติดต่อ : </label>
+        <div style="display: inline-block; vertical-align: top; margin-top: 0px;">
+          <div *ngFor="let phone of item.contact.phones">{{ phone.phone }}</div>
+        </div>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="3.ข้อมูลบัญชีธนาคาร" class="cl-view-display">
+      <div *ngFor="let bankAccount of item.bankAccounts; let i=index">
+        <label>บัญชี {{ i + 1 }}</label>
+        <div>
+          <label>เลขที่บัญชี : </label>
+          <span>{{ bankAccount.code }}</span>
+        </div>
+        <div>
+          <label>ชื่อบัญชี : </label>
+          <span>{{ bankAccount.name }}</span>
+        </div>
+        <div>
+          <label>ประเภทบัญชี : </label>
+          <span>{{ bankAccount.category }}</span>
+        </div>
+        <div>
+          <label>ธนาคาร : </label>
+          <span>{{ bankAccount.bank }}</span>
+        </div>
+        <div>
+          <label>สาขา : </label>
+          <span>{{ bankAccount.branch }}</span>
+        </div>
+      </div>
+    </cs-section-block>
+  </cs-section-block>
+
+</cs-data-view>

@@ -1,0 +1,46 @@
+<cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
+  <div fxLayout="row">
+    <mat-form-field fxFlex>
+      <input type="text" matInput formControlName="name" placeholder="ชื่อ BOQ" />
+      <mat-error>
+        <cs-form-control-error></cs-form-control-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <item-data-array formArrayName="budgetTypes" [createItemCallback]="createBudgetTypeFn" required
+    activeMedia #activeMedia="activeMedia">
+    <item-data-array-item *ngFor="let item of form.get('budgetTypes').controls; let i=index" [index]="i"
+      [layout]="activeMedia.if('xs', 'column', 'row')" [formGroupName]="i">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+        <mat-form-field fxFlex="240px" fxFlex.xs>
+          <input type="text" matInput formControlName="code" placeholder="รหัสประเภทงบประมาณ" />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="240px" fxFlex.xs>
+          <input type="text" matInput formControlName="name" placeholder="ชื่อประเภทงบประมาณ" />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="240px" fxFlex.xs>
+          <input type="number" matInput [formControl]="form.get('budgets.' + createBudgetIfNeed(form.get('budgetTypes.' + i + '._code').value) + '.budget')"
+            placeholder="งบประมาณ" readonly />
+        </mat-form-field>
+      </div>
+    </item-data-array-item>
+  </item-data-array>
+  <div formArrayName="children">
+    <cs-project-boq-data
+      *ngFor="let control of form.get('children').controls; let i = index;"
+      [formGroupName]="i" [budgetTypes]="budgetTypes" [index]="i + 1"></cs-project-boq-data>
+    <div fxLayout="column">
+      <button type="button" mat-button color="primary"
+        (click)="createDetail()">
+        <mat-icon>add</mat-icon>
+        <span>Add</span>
+      </button>
+    </div>
+  </div>
+</cs-data-form>

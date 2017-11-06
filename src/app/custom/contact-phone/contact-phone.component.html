@@ -1,0 +1,41 @@
+<div [formGroup]="formGroup">
+
+  <div>
+    <button type="button" mat-icon-button
+      matTooltip="set default"
+      [color]="(formGroup.get('default').value)? 'primary' : null"
+      (click)="setDefault()">
+      <mat-icon>phone</mat-icon>
+    </button>
+  </div>
+  <mat-form-field fxFlex="240px" fxFlex.xs>
+    <input matInput formControlName="phone" placeholder="Phone" required />
+    <mat-hint>(กรอกเฉพาะตัวเลข เช่น 0813335555)</mat-hint>
+    <mat-error>
+      <cs-form-control-error></cs-form-control-error>
+    </mat-error>
+  </mat-form-field>
+
+</div>
+
+<!--
+
+<div [formGroup]="formGroup" fxLayout="row">
+  <div>
+    <button type="button" mat-icon-button
+      matTooltip="set default"
+      [color]="(formGroup.get('default').value)? 'primary' : null"
+      (click)="setDefault()">
+      <mat-icon>phone</mat-icon>
+    </button>
+  </div>
+  <mat-form-field fxFlex>
+    <input matInput formControlName="phone" placeholder="Phone" required />
+    <mat-hint>0891234567 (ไม่มีช่องว่างหรือ -)</mat-hint>
+    <mat-error>
+      <cs-form-control-error></cs-form-control-error>
+    </mat-error>
+  </mat-form-field>
+</div>
+
+-->

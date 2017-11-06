@@ -1,0 +1,33 @@
+@query-xs: ~"(max-width: 600px)";
+@label-width: 200px;
+
+.list-second-line{
+  color: gray;
+}
+
+.cl-code, .cl-number {
+  font-family: monospace;
+}
+
+.cl-number {
+  text-align: right;
+}
+
+input[type="number"] {
+  .cl-number;
+}
+
+.cl-view-display {
+  label {
+    display: inline-block;
+    width: @label-width;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  @media @query-xs {
+    label {
+      display: none !important;
+    }
+  }
+}

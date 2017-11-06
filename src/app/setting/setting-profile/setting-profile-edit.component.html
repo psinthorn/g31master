@@ -1,0 +1,31 @@
+<item-edit *ngIf="form" [metaData]="metaData" [operators]="operators"
+  [formGroup]="form">
+
+  <cs-section-block header="ข้อมูลบริษัท" level="3">
+    <cs-section-block header="1.ข้อมูลนิติบุคคล">
+      <cs-corporate formGroupName="profileData"></cs-corporate>
+    </cs-section-block>
+
+    <cs-section-block header="2.ข้อมูลติดต่อ">
+      <cs-address formGroupName="address"></cs-address>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+        <mat-form-field fxFlex>
+          <input matInput formControlName="phone" placeholder="โทรศัพท์" required />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input matInput formControlName="fax" placeholder="แฟ็กซ์" required />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </cs-section-block>
+
+    <cs-section-block header="3.โลโก้">
+    </cs-section-block>
+  </cs-section-block>
+
+</item-edit>

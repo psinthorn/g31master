@@ -1,0 +1,10 @@
+<mat-nav-list>
+  <ng-template ngFor let-route [ngForOf]="routes">
+    <a mat-list-item *ngIf="route.path !== ''"
+      [routerLink]="route.path" routerLinkActive="active">
+      <mat-icon *ngIf="route.data?.icon" mat-list-icon>{{ route.data.icon }}</mat-icon>
+      <div mat-line>{{ (route.data)? route.data.label || route.path : route.path}}</div>
+      <div mat-line class="list-second-line">{{ route.data.description }}</div>
+    </a>
+  </ng-template>
+</mat-nav-list>

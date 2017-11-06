@@ -1,0 +1,5 @@
+<div class="cp-container">
+  <mat-select [formControl]="control" [placeholder]="(placeholder)? placeholder : 'ภาษีหัก ณ ที่จ่าย'" class="mat-select-align-right" style="width: 100%;">
+    <mat-option *ngFor="let item of items$ | async" [value]="item" class="cl-number">{{ (+item).toFixed(2) }}%</mat-option>
+  </mat-select>
+</div>

@@ -1,0 +1,56 @@
+<div [formGroup]="formGroup">
+  <div fxLayout="column">
+    <div fxLayout="row" [ngStyle.gt-xs]="{'height': '0px'}">
+      <mat-form-field fxFlex>
+        <input type="text" matInput formControlName="name" [placeholder]="index + ' หมวดงาน'" />
+        <mat-error>
+          <cs-form-control-error></cs-form-control-error>
+        </mat-error>
+        <button *ngIf="formGroup.get('children').controls.length === 0"
+          matSuffix type="button" mat-icon-button color="primary" matTooltip="Expand Detail"
+          (click)="addNewChild()">
+          <mat-icon>arrow_drop_down_circle</mat-icon>
+        </button>
+      </mat-form-field>
+      <div fxHide.xs [fxFlex]="(budgetWidth * budgetTypes.length) + 'px'"></div>
+      <button type="button" mat-icon-button color="warn" matTooltip="Remove"
+        (click)="removeSelf(formGroup)">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" formGroupName="budgets">
+      <div fxHide.xs fxFlex></div>
+      <mat-form-field [fxFlex]="budgetWidth + 'px'" [ngStyle.gt-xs]="{'border-left': '1px solid black'}"
+        *ngFor="let budgetType of budgetTypes" [formGroupName]="addBudgetIfNeed(budgetType._code)">
+        <input type="number" matInput formControlName="budget" step="any"
+          [placeholder]="budgetType.name"
+          [readonly]="formGroup.get('children').controls.length > 0" />
+        <mat-error>
+          <cs-form-control-error></cs-form-control-error>
+        </mat-error>
+      </mat-form-field>
+      <div fxHide.xs fxFlex="40px"></div>
+    </div>
+  </div>
+  <div *ngIf="formGroup.get('children').controls.length > 0"
+    formArrayName="children" fxLayout="row-reverse" fxLayout.xs="column">
+    <div fxFlex.gt-xs [ngStyle.xs]="{'padding-left': '16px'}">
+      <cs-project-boq-data
+        *ngFor="let control of formGroup.get('children').controls; let i = index;"
+        [formGroupName]="i" [budgetTypes]="budgetTypes" [index]="index + '.' + (i + 1)"></cs-project-boq-data>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center end" [ngStyle.gt-xs]="{'padding-bottom': '20px'}">
+      <button fxHide.xs type="button" mat-icon-button color="primary"
+        [matTooltip]="'Add Child for ' + index + ' ' + formGroup.get('name').value"
+        matTooltipPosition="right"
+        (click)="addNewChild()">
+        <mat-icon>add_circle_outline</mat-icon>
+      </button>
+      <button fxHide.gt-xs type="button" mat-button color="primary" fxFlex
+        (click)="addNewChild()">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>{{ 'Add Child for ' + index + ' ' + formGroup.get('name').value }}</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<cs-data-list i3eParentProcessor>
+  <div *ngIf="items">
+    <item-not-found *ngIf="items.length === 0"
+      [subtitle]="(itemQuery.term)? 'for: ' + itemQuery.term : 'No any data'"></item-not-found>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of items; let inx = index" [csDataListSelected]="[item.id]">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h3 mat-line>{{ item.code }} {{ item.name }}</h3>
+        <div mat-line class="list-second-line">{{ item.individual.contact.alias }} {{ item.individual.contact.position }} (ติดต่อ : {{ item.individual.contact.phone }})</div>
+        <a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
+          <mat-icon>phone</mat-icon>
+        </a>
+      </a>
+    </mat-nav-list>
+  </div>
+</cs-data-list>

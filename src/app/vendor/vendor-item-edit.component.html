@@ -1,0 +1,19 @@
+<item-edit *ngIf="form" [metaData]="metaData" [operators]="operators"
+  [formGroup]="form">
+
+  <cs-section-block header="ข้อมูลผู้ขาย" level="3">
+    <cs-section-block header="1.ข้อมูลเจ้าของร้าน">
+      <cs-person-control formControlName="owner"></cs-person-control>
+    </cs-section-block>
+
+    <div>
+      <mat-form-field fxFlex>
+        <textarea matInput formControlName="remark" placeholder="หมายเหตุ" rows="4"></textarea>
+        <mat-error>
+          <cs-form-control-error></cs-form-control-error>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </cs-section-block>
+
+</item-edit>

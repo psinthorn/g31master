@@ -1,0 +1,21 @@
+<div class="component-container">
+  <div fxLayout="row" fxLayout.xs="column">
+    <cs-searchable-control fxFlex fxFlex.xs="0 0 auto"
+      [formControl]="formControl" [itemsAutoComplete]="itemsAutoComplete"
+      labelWith="ผู้ขาย{{ (value && value.code)? ' (' + value.code + ')' : '' }}"
+      (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+      <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayWith">
+        <mat-option *ngFor="let item of items$ | async" [value]="item">
+          <div fxLayout="row" fxLayoutAlign="start center" class="option-container">
+            <mat-icon>{{ (item.owner.dtype === 'individual')? 'person' : 'business' }}</mat-icon>
+
+            <div fxLayout="column" class="option-content-container">
+              <div class="option-line">{{ item }}</div>
+              <div class="option-line option-second-line">{{ item.owner.code }} {{ item.owner.contact.alias }}</div>
+            </div>
+          </div>
+        </mat-option>
+      </mat-autocomplete>
+    </cs-searchable-control>
+  </div>
+</div>

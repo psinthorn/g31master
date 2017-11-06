@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar color="accent">info_outline</mat-icon>
+    <mat-card-title>Item Not Found</mat-card-title>
+    <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-icon mat-card-image color="warn">report_problem</mat-icon>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>

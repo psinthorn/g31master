@@ -1,0 +1,17 @@
+<cs-searchable-array-control [freeEnter]="freeEnter" style="width: 100%;"
+  [formControl]="control" [autocomplete]="itemsAutoComplete" [readonly]="readonly"
+  [placeholder]="placeholder || 'พนักงาน' + ((value?.code)? ' (' + value.code + ')' : '')"
+  (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+  <mat-autocomplete #itemsAutoComplete="matAutocomplete">
+    <mat-option *ngFor="let item of items$ | async" [value]="item">
+      <div fxLayout="row" fxLayoutAlign="start center" class="option-container">
+        <div fxLayout="column" class="option-content-container">
+          <div class="option-line">{{ item }}</div>
+          <div class="option-line option-second-line">{{ item.individual.code }} {{ item.individual.contact.alias }}</div>
+        </div>
+      </div>
+    </mat-option>
+  </mat-autocomplete>
+  <div class="cs-error-message"><ng-content select=".cs-error-message"></ng-content></div>
+  <div class="cs-hint-message"><ng-content select=".cs-hint-message"></ng-content></div>
+</cs-searchable-array-control>
