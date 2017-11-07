@@ -1,5 +1,59 @@
 <cs-data-view *ngIf="item" i3eParentProcessor>
-  <div class="cl-view-display">
+
+<h4>2.ข้อมูลสินค้า</h4>
+    <hr>
+  <div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      
+          <br>
+          <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">รหัสสินค้า</p>
+                    <input type="text" class="form-control" value="{{ item.code }}" readonly>
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4">               
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4"></div>
+          </div>
+
+            <br>
+           <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                  <p class="text-secondary">ชื่อสินค้า</p>
+                  <input type="text" class="form-control" value="{{ item.name }}" readonly>
+            </div>  
+             <div class="col-sm-12 col-md-4 col-lg-4">     
+                  <p class="text-secondary">หน่วย</p>
+                  <input type="text" class="form-control" value="{{ item.unit }}" readonly>          
+            </div>  
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                  <p class="text-secondary">ราคา/หน่วย</p>
+                  <input type="text" class="form-control" value="{{ item.price }}" readonly>   
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-secondary">รายละเอียด</p>
+                  <textarea class="form-control" readonly>{{ item.description }}</textarea>
+            </div>  
+             
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-secondary">หมายเหตุ</p>
+                  <textarea class="form-control" readonly>{{ item.remark }}</textarea>
+            </div>  
+             
+        </div>
+    </div>
+  </div>
+
+
+
+  <!--<div class="cl-view-display">
     <div>
       <label>รหัสสินค้า : </label>
       <span>{{ item.code }}</span>
@@ -25,5 +79,5 @@
       <span>{{ item.remark }}</span>
     </div>
   </div>
-  <pre>{{ item | json }}</pre>
+  <pre>{{ item | json }}</pre>-->
 </cs-data-view>

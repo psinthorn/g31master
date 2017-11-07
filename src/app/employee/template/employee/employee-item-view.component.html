@@ -108,28 +108,25 @@
 
       <br>
       <div class="row">
-         <div class="col-sm-12 col-md-12 col-lg-12">
+
+              <div class="col-sm-4 col-md-4 col-lg-4">
                 <p class="text-secondary">เบอร์โทรติดต่อ</p>
+                
+                  <div class="row" *ngFor="let phone of item.individual.contact.phones" >
 
-                <div class="col-sm-12 col-md- col-lg-4" *ngFor="let phone of item.individual.contact.phones" >
-                  <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 d-inline">
+                          <input type="text" class="form-control" value="{{ phone.phone}}" readonly>   
+                        </div>
 
+                        <div class="col-sm-1 col-md-1 col-lg-1 d-inline" >
+                          <a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
+                          <mat-icon>phone</mat-icon></a>  
+
+                        </div> 
                      
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" value="{{ phone.phone}}" readonly>   
-                      </div>
-
-                       <div class="col-md-1" >
-                        <a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
-                        <mat-icon>phone</mat-icon></a>  
-
-                      </div> 
-                      
                   </div>
-                </div>               
-        </div> 
-
-
+                              
+         </div> 
 
       </div>
 
@@ -149,7 +146,7 @@
             </div>  
             <div class="col-sm-12 col-md-2 col-lg-2">
             </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="col-sm-12 col-md-4 col-lg-4 ">
                     <p class="text-secondary">เลขที่บัญชี</p>
                     <input type="text" class="form-control" value="{{ bankAccount.code }}" readonly>
             </div>  
@@ -160,19 +157,24 @@
         </div>
         <br>
         <div class="row">
+
+             <div class="col-sm-12 col-md-4 col-lg-4">
+                    <p class="text-secondary">ธนาคาร</p>
+                    <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
+            </div>  
+
             <div class="col-sm-12 col-md-4 col-lg-4">
                     <p class="text-secondary">ประเภทบัญชี </p>
                     <input type="text" class="form-control" value="{{ bankAccount.category }}" readonly>
             </div>  
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                    <p class="text-secondary">ธนาคาร</p>
-                    <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
-            </div>  
+           
             <div class="col-sm-12 col-md-4 col-lg-4">
                     <p class="text-secondary">สาขา</p>
                     <input type="text" class="form-control" value="{{ bankAccount.branch }}" readonly>        
             </div>  
         </div>
+        <br>
+        <br>
 
       </div>
 
