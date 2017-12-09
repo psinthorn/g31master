@@ -1,13 +1,21 @@
 <cs-data-list i3eParentProcessor>
-  <div *ngIf="items">
-    <item-not-found *ngIf="items.length === 0"
-      [subtitle]="(itemQuery.term)? 'for: ' + itemQuery.term : 'No any data'"></item-not-found>
-    <mat-nav-list>
-      <a mat-list-item *ngFor="let item of items; let inx = index" [csDataListSelected]="[item.id, item.dtype]">
-        <mat-icon mat-list-icon>{{ (item.dtype === 'individual')? 'person' : 'group' }}</mat-icon>
-        <h3 mat-line>{{ item.code }} {{ item.name }}</h3>
-        <div mat-line class="list-second-line">{{ item.contact.alias }} {{ item.contact.phone }}</div>
-      </a>
-    </mat-nav-list>
+  <div class="container">
+
+
+    <div *ngIf="items">
+      <item-not-found *ngIf="items.length === 0" [subtitle]="(itemQuery.term)? 'for: ' + itemQuery.term : 'No any data'"></item-not-found>
+
+      <div *ngFor="let item of items; let inx = index">
+        <mat-nav-list>
+          <div class="box-card-10">
+            <a mat-list-item [csDataListSelected]="[item.id, item.dtype]">
+              <mat-icon mat-list-icon>{{ (item.dtype === 'individual')? 'person' : 'group' }}</mat-icon>
+              <h3 mat-line>{{ item.code }} {{ item.name }}</h3>
+              <div mat-line class="list-second-line">{{ item.contact.alias }} {{ item.contact.phone }}</div>
+            </a>
+          </div>
+        </mat-nav-list>
+      </div>
+    </div>
   </div>
 </cs-data-list>

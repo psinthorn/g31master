@@ -1,189 +1,224 @@
-
-
 <cs-data-view *ngIf="item" i3eParentProcessor>
   <!--<pre>{{ item | json }}</pre>-->
-<div class="container">
 
-    <h4>1.ข้อมูลบัตรประจำตัวประชาชน</h4>
-    <hr>
-<div class="col-sm-12 col-md-12 col-lg-12">    
+  <div class="container">
 
-          <br>
-          <div class="row"> 
-            <div class="col-sm-12 col-md-4 col-lg-4">
-              <p class="text-secondary">เลขประจำตัวประชาชน</p>
-              <input type="text" class="form-control" value="{{ item.individual.personData.code }}" readonly>
+    <div class="box-card-20">
+
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+        <h3>1.ข้อมูลบัตรประจำตัวประชาชน</h3>
+
+        <div class="card">
+          <label class="card-header">{{ item.individual.personData.initname }} {{ item.individual.personData.firstname }} {{ item.individual.personData.lastname }}</label>
+          <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+
+
+
+
+            <br>
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <label class="text-dark">เลขประจำตัวประชาชน</label>
+                <input type="text" class="form-control" value="{{ item.individual.personData.code }}" readonly>
+              </div>
             </div>
-          </div>  
-          <br>
+            <br>
 
-          <div class="row">
+            <div class="row">
 
-            <div class="col-sm-12 col-md-8 col-lg-8">
-                <p class="text-secondary">ชื่อ-นามสกุล</p>
-                <input type="text" class="form-control" value="{{ item.individual.personData.initname }} {{ item.individual.personData.firstname }} {{ item.individual.personData.lastname }}" readonly>
-            </div> 
+              <div class="label-input-form col-sm-12 col-md-8 col-lg-8">
+                <label class="text-dark">ชื่อ-นามสกุล</label>
+                <input type="text" class="form-control" value="{{ item.individual.personData.initname }} {{ item.individual.personData.firstname }} {{ item.individual.personData.lastname }}"
+                  readonly>
+              </div>
 
-             <div class="col-sm-12 col-md-2 col-lg-2">
-                <p class="text-secondary">วันเกิด</p>
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <label class="text-dark">วันเกิด</label>
                 <input type="text" class="form-control" value="{{ item.individual.personData.birthDate }}" readonly>
-            </div> 
+              </div>
 
-             <div class="col-sm-12 col-md-2 col-lg-2">
-               <p class="text-secondary">ศาสนา</p>
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <label class="text-dark">ศาสนา</label>
                 <input type="text" class="form-control" value="{{ item.individual.personData.religious }}" readonly>
-            </div> 
+              </div>
 
 
 
-          </div>  
-
-          <br>
-
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <p class="text-secondary">ที่อยู่</p>
-                <textarea class="form-control" readonly>{{ item.individual.personData.address }}</textarea>
-            </div>   
-          </div>     
-          <p></p>   
-          <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-3">
-                <p class="text-secondary">วันออกบัตร</p>
-                <input type="text" class="form-control" value="{{ item.individual.personData.issueDate }}" readonly>
-            </div>  
-            <div class="col-sm-12 col-md-3 col-lg-3">
-                <p class="text-secondary">วันหมดอายุ</p>
-                <input type="text" class="form-control" value="{{ item.individual.personData.expiredDate }}" readonly>
-            </div>  
-            <div class="col-sm-12 col-md-6 col-lg-6">
-               
-            </div>  
-            
-          </div>   
-
-           
-  
-  </div>    
-  <br>
-  <br>
-
-   <h4>2.ข้อมูลติดต่อ</h4>
-    <hr>
-       <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <p class="text-secondary">ที่อยู่</p>
-                <textarea class="form-control" readonly>{{ item.individual.address }}</textarea>
-            </div>   
-        </div>  
-
-      <br>
-      <div class="row">
-        <div class="col-sm-12 col-md-4 col-lg-4">
-                <p class="text-secondary">ชื่อเรียก</p>
-                <input type="text" class="form-control" value="{{ item.individual.contact.alias }}" readonly>
-        </div>  
-         <div class="col-sm-12 col-md-4 col-lg-4">
-                <p class="text-secondary">ตำแหน่ง</p>
-                <input type="text" class="form-control" value="{{ item.individual.contact.position }}" readonly>
-        </div>  
-         <div class="col-sm-12 col-md-4 col-lg-4">
-               
-        </div>  
-      </div>
-
-      <br>
-      <div class="row">
-        <div class="col-sm-12 col-md-4 col-lg-4">
-                <p class="text-secondary">อีเมล</p>
-                <input type="text" class="form-control" value="{{ item.individual.contact.email }}" readonly>
-        </div>  
-         <div class="col-sm-12 col-md-4 col-lg-4">
-                <p class="text-secondary">ไลน์ไอดี</p>
-                <input type="text" class="form-control" value="{{ item.individual.contact.lineId }}" readonly>
-        </div>  
-        <div class="col-sm-12 col-md-4 col-lg-4"></div>
-        
-      </div>
-
-      <br>
-      <div class="row">
-
-              <div class="col-sm-4 col-md-4 col-lg-4">
-                <p class="text-secondary">เบอร์โทรติดต่อ</p>
-                
-                  <div class="row" *ngFor="let phone of item.individual.contact.phones" >
-
-                        <div class="col-sm-3 col-md-3 col-lg-3 d-inline">
-                          <input type="text" class="form-control" value="{{ phone.phone}}" readonly>   
-                        </div>
-
-                        <div class="col-sm-1 col-md-1 col-lg-1 d-inline" >
-                          <a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
-                          <mat-icon>phone</mat-icon></a>  
-
-                        </div> 
-                     
-                  </div>
-                              
-         </div> 
-
-      </div>
-
-
-       <br>
-  <br>
-
-   <h4>3.ข้อมูลบัญชีธนาคาร</h4>
-    <hr>
-
-      <div *ngFor="let bankAccount of item.individual.bankAccounts; let i=index"> 
-
-        <div class="row">
-            <div class="col-sm-12 col-md-2 col-lg-2">
-                    <p class="text-secondary">บัญชี</p>
-                    <input type="text" class="form-control" value="{{ i +1}}" readonly>
-            </div>  
-            <div class="col-sm-12 col-md-2 col-lg-2">
             </div>
-            <div class="col-sm-12 col-md-4 col-lg-4 ">
-                    <p class="text-secondary">เลขที่บัญชี</p>
-                    <input type="text" class="form-control" value="{{ bankAccount.code }}" readonly>
-            </div>  
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                    <p class="text-secondary">ชื่อบัญชี</p>
-                    <input type="text" class="form-control" value="{{ bankAccount.name }}" readonly>        
-            </div>  
-        </div>
-        <br>
-        <div class="row">
 
-             <div class="col-sm-12 col-md-4 col-lg-4">
-                    <p class="text-secondary">ธนาคาร</p>
-                    <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
-            </div>  
 
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                    <p class="text-secondary">ประเภทบัญชี </p>
-                    <input type="text" class="form-control" value="{{ bankAccount.category }}" readonly>
-            </div>  
-           
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                    <p class="text-secondary">สาขา</p>
-                    <input type="text" class="form-control" value="{{ bankAccount.branch }}" readonly>        
-            </div>  
+
+            <br>
+
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-12 col-lg-12">
+                <label class="text-dark">ที่อยู่</label>
+                <textarea class="form-control" readonly>{{ item.individual.personData.address }}</textarea>
+              </div>
+            </div>
+            <p></p>
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-3 col-lg-3">
+                <label class="text-dark">วันออกบัตร</label>
+                <input type="text" class="form-control" value="{{ item.individual.personData.issueDate }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-3 col-lg-3">
+                <label class="text-dark">วันหมดอายุ</label>
+                <input type="text" class="form-control" value="{{ item.individual.personData.expiredDate }}" readonly>
+              </div>
+              <div class="clabel-input-form col-sm-12 col-md-6 col-lg-6">
+
+              </div>
+
+            </div>
+
+          </div>
         </div>
-        <br>
-        <br>
+      </div>
+
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+        <h3>2.ข้อมูลติดต่อ</h3>
+
+        <div class="card">
+          <label class="card-header"><label class="text-dark">ที่อยู่</label></label>
+          <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+
+
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-12 col-lg-12">
+                <label class="text-dark">ที่อยู่</label>
+                <textarea class="form-control" readonly>{{ item.individual.address }}</textarea>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <label class="text-dark">ชื่อเรียก</label>
+                <input type="text" class="form-control" value="{{ item.individual.contact.alias }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <label class="text-dark">ตำแหน่ง</label>
+                <input type="text" class="form-control" value="{{ item.individual.contact.position }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <label class="text-dark">อีเมล</label>
+                <input type="text" class="form-control" value="{{ item.individual.contact.email }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <label class="text-dark">ไลน์ไอดี</label>
+                <input type="text" class="form-control" value="{{ item.individual.contact.lineId }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4"></div>
+
+            </div>
+
+            <br>
+            <div class="row">
+
+              <div class="label-input-form col-sm-12 col-md-12 col-lg-12">
+                <label class="text-dark">เบอร์โทรติดต่อ</label>
+
+                <div class="row" *ngFor="let phone of item.individual.contact.phones">
+
+
+
+                  <div class="label-input-form col-sm-4 col-md-4 col-lg-4">
+                    <div class="input-group">
+
+                      <input type="text" class="form-control" placeholder="{{ phone.phone}}" aria-describedby="sizing-addon2" readonly>
+                      <span class="input-group-addon" id="sizing-addon2"><a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
+                          <mat-icon>phone</mat-icon></a></span>
+                    </div>
+                    <!--<input type="text" class="form-control" value="{{ phone.phone}}" readonly>   -->
+                  </div>
+
+                  <div class="label-input-form col-sm-1 col-md-1 col-lg-1">
+                    <!--<a mat-icon-button href="tel:{{ item.individual.contact.phone }}" (click)="$event.stopPropagation();">
+                          <mat-icon>phone</mat-icon></a>  -->
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
 
-</div>
+
+
+
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+
+        <h3>3.ข้อมูลบัญชีธนาคาร</h3>
+        <div *ngFor="let bankAccount of item.individual.bankAccounts; let i=index">
+          <div class="card">
+            <label class="card-header"><label class="text-dark">บัญชีธนาคารลำดับที่ {{ i + 1 }}</label></label>
+            <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+
+
+
+              <div class="row">
+                <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                  <label class="text-dark">บัญชี</label>
+                  <input type="text" class="form-control" value="{{ i +1}}" readonly>
+                </div>
+                <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                </div>
+                <div class="label-input-form col-sm-12 col-md-4 col-lg-4 ">
+                  <label class="text-dark">เลขที่บัญชี</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.code }}" readonly>
+                </div>
+                <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                  <label class="text-dark">ชื่อบัญชี</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.name }}" readonly>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+
+                <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                  <label class="text-dark" for="account_type">ธนาคาร</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
+                </div>
+
+                <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                  <label class="text-dark" for="account_type">ประเภทบัญชี </label>
+                  <input type="text" class="form-control" value="{{ bankAccount.category }}" readonly>
+                </div>
+
+                <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                  <label class="text-dark">สาขา</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.branch }}" readonly>
+                </div>
+              </div>
+              <br>
+              <br>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </cs-data-view>
-
-
-
-
-

@@ -1,15 +1,20 @@
-<cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
-  <cs-section-block header="ข้อมูลพนักงาน" level="3">
-    <cs-section-block header="1.ข้อมูลบุคคล">
-      <cs-person-control csPersonType="individual" formControlName="individual"></cs-person-control>
-    </cs-section-block>
-    <div>
-      <mat-form-field fxFlex>
-        <textarea matInput formControlName="remark" placeholder="หมายเหตุ" required rows="3"></textarea>
-        <mat-error>
-          <cs-form-control-error></cs-form-control-error>
-        </mat-error>
-      </mat-form-field>
-    </div>
-  </cs-section-block>
-</cs-data-form>
+<br>
+<div class="container">
+  <div class="box-card-20">
+    <cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
+      <cs-section-block header="ข้อมูลพนักงาน" level="3">
+        <cs-section-block header="1.ข้อมูลบุคคล">
+          <cs-person-control csPersonType="individual" formControlName="individual"></cs-person-control>
+        </cs-section-block>
+        <div>
+          <mat-form-field fxFlex>
+            <textarea matInput formControlName="remark" placeholder="หมายเหตุ" required rows="3"></textarea>
+            <mat-error>
+              <cs-form-control-error></cs-form-control-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </cs-section-block>
+    </cs-data-form>
+  </div>
+</div>

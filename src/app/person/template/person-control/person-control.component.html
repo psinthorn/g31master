@@ -1,24 +1,28 @@
-<cs-searchable-item-control #mainControl="csSearchableItemControl" style="width: 100%;"
-  [formControl]="control" [newTemplate]="newTemplate"
-  [freeEnter]="freeEnter" [autocomplete]="itemsAutoComplete" [readonly]="readonly"
-  [placeholder]="placeholder || 'บุคคล' + ((value?.code)? ' (' + value.code + ')' : '')"
-  (searchChange)="search($event)" (dataTouch)="markAsTouched()">
-  <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayFn">
-    <mat-option *ngFor="let item of items$ | async" [value]="item">
-      <div fxLayout="row" fxLayoutAlign="start center" class="option-container">
-        <div fxLayout="column" class="option-content-container">
-          <mat-icon>{{ (item.dtype === 'individual')? 'person' : 'group' }}</mat-icon>
+<div class="container">
+  <cs-searchable-item-control #mainControl="csSearchableItemControl" style="width: 100%;" [formControl]="control" [newTemplate]="newTemplate"
+    [freeEnter]="freeEnter" [autocomplete]="itemsAutoComplete" [readonly]="readonly" [placeholder]="placeholder || 'บุคคล' + ((value?.code)? ' (' + value.code + ')' : '')"
+    (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+    <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let item of items$ | async" [value]="item">
+        <div fxLayout="row" fxLayoutAlign="start center" class="option-container">
           <div fxLayout="column" class="option-content-container">
-            <div class="option-line">{{ item }}</div>
-            <div class="option-line option-second-line">{{ item.personData.code }} {{ item.contact.alias }}</div>
+            <mat-icon>{{ (item.dtype === 'individual')? 'person' : 'group' }}</mat-icon>
+            <div fxLayout="column" class="option-content-container">
+              <div class="option-line">{{ item }}</div>
+              <div class="option-line option-second-line">{{ item.personData.code }} {{ item.contact.alias }}</div>
+            </div>
           </div>
         </div>
-      </div>
-    </mat-option>
-  </mat-autocomplete>
-  <div class="cs-error-message"><ng-content select=".cs-error-message"></ng-content></div>
-  <div class="cs-hint-message"><ng-content select=".cs-hint-message"></ng-content></div>
-  <ng-template #newTemplate>
-    <cs-person-individual-item-form i3eDataLoader="existing" [existingData]="null" csFormSimpleProcessor (save)="mainControl.createValue($event)"></cs-person-individual-item-form>
-  </ng-template>
-</cs-searchable-item-control>
+      </mat-option>
+    </mat-autocomplete>
+    <div class="cs-error-message">
+      <ng-content select=".cs-error-message"></ng-content>
+    </div>
+    <div class="cs-hint-message">
+      <ng-content select=".cs-hint-message"></ng-content>
+    </div>
+    <ng-template #newTemplate>
+      <cs-person-individual-item-form i3eDataLoader="existing" [existingData]="null" csFormSimpleProcessor (save)="mainControl.createValue($event)"></cs-person-individual-item-form>
+    </ng-template>
+  </cs-searchable-item-control>
+</div>

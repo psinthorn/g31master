@@ -1,99 +1,104 @@
-<cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
+<br>
+<div class="container">
+  <div class="box-card-20">
+    <cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
 
-  <cs-section-block header="1.ข้อมูลโครงการ" level="4">
-    <cs-project-control formControlName="project"></cs-project-control>
-    <mat-form-field style="width: 100%;">
-      <textarea matInput formControlName="shippingAddress" placeholder="ที่อยู่จัดส่ง" required rows="3"></textarea>
-      <mat-error>
-        <cs-form-control-error></cs-form-control-error>
-      </mat-error>
-    </mat-form-field>
-  </cs-section-block>
+      <cs-section-block header="1.ข้อมูลโครงการ" level="4">
+        <cs-project-control formControlName="project"></cs-project-control>
+        <mat-form-field style="width: 100%;">
+          <textarea matInput formControlName="shippingAddress" placeholder="ที่อยู่จัดส่ง" required rows="3"></textarea>
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+      </cs-section-block>
 
-  <cs-section-block header="2.ข้อมูลผู้ขอ" level="4">
-    <cs-employee-control formControlName="requester"></cs-employee-control>
-    <mat-form-field style="width: 100%;">
-      <input matInput formControlName="contactInformation" placeholder="ผู้ติดต่อ" required />
-      <mat-error>
-        <cs-form-control-error></cs-form-control-error>
-      </mat-error>
-    </mat-form-field>
-  </cs-section-block>
+      <cs-section-block header="2.ข้อมูลผู้ขอ" level="4">
+        <cs-employee-control formControlName="requester"></cs-employee-control>
+        <mat-form-field style="width: 100%;">
+          <input matInput formControlName="contactInformation" placeholder="ผู้ติดต่อ" required />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+      </cs-section-block>
 
-  <cs-section-block header="3.ข้อมูลผู้ขาย/รับจ้าง/เช่า" level="4">
-    <cs-vendor-control formControlName="vendor"></cs-vendor-control>
-    <mat-form-field style="width: 100%;">
-      <textarea matInput formControlName="vendorAddress" placeholder="ที่อยู่" required rows="3"></textarea>
-      <mat-error>
-        <cs-form-control-error></cs-form-control-error>
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field style="width: 100%;">
-      <input matInput formControlName="vendorContactInformation" placeholder="ผู้ติดต่อ" />
-      <mat-error>
-        <cs-form-control-error></cs-form-control-error>
-      </mat-error>
-    </mat-form-field>
-  </cs-section-block>
+      <cs-section-block header="3.ข้อมูลผู้ขาย/รับจ้าง/เช่า" level="4">
+        <cs-vendor-control formControlName="vendor"></cs-vendor-control>
+        <mat-form-field style="width: 100%;">
+          <textarea matInput formControlName="vendorAddress" placeholder="ที่อยู่" required rows="3"></textarea>
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+          <input matInput formControlName="vendorContactInformation" placeholder="ผู้ติดต่อ" />
+          <mat-error>
+            <cs-form-control-error></cs-form-control-error>
+          </mat-error>
+        </mat-form-field>
+      </cs-section-block>
 
-  <cs-section-block header="4.ข้อมูลสินค้า" level="4">
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px"
-      i3eDataLoader="existing" [existingData]="form.get('project').value" csProjectItemLoader>
-      <mat-form-field fxFlex.gt-xs="160px">
-        <input type="date" matInput formControlName="wantedDate" placeholder="วันที่ต้องการ" style="width: 100%;" required />
-      </mat-form-field>
+      <cs-section-block header="4.ข้อมูลสินค้า" level="4">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px" i3eDataLoader="existing" [existingData]="form.get('project').value"
+          csProjectItemLoader>
+          <mat-form-field fxFlex.gt-xs="160px">
+            <input type="date" matInput formControlName="wantedDate" placeholder="วันที่ต้องการ" style="width: 100%;" required />
+          </mat-form-field>
 
-      <cs-project-boq-control formControlName="boq" fxFlex.gt-xs="240px"></cs-project-boq-control>
+          <cs-project-boq-control formControlName="boq" fxFlex.gt-xs="240px"></cs-project-boq-control>
 
-      <cs-project-boq-budget-type-control formControlName="budgetType" [projectBoq]="form.get('boq').value" fxFlex.gt-xs="240px"></cs-project-boq-budget-type-control>
+          <cs-project-boq-budget-type-control formControlName="budgetType" [projectBoq]="form.get('boq').value" fxFlex.gt-xs="240px"></cs-project-boq-budget-type-control>
 
-    </div>
-    <item-data-array formArrayName="details" [createItemCallback]="createDetail" required activeMedia>
-      <item-data-array-item *ngFor="let item of form.get('details').controls; let i=index" [index]="i"
-        [layout]="row">
-        <div [formGroupName]="i" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
-          <div fxLayout="column" fxFlex fxFlex.xs="auto" [style.gt-xs]="{borderRight: '1px solid black'}">
-            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
-              <cs-cost-item-control formControlName="_costItem" placeholder="รายการสินค้า{{ getCostItemPlaceholderSuffix(i) }}" freeEnter fxFlex.gt-md>
-                <cs-error-message class="cs-error-message"></cs-error-message>
-              </cs-cost-item-control>
-              <mat-form-field fxFlex="120px" fxFlex.lt-md>
-                <input matInput formControlName="unit" placeholder="หน่วย" required />
-              </mat-form-field>
-              <mat-form-field fxFlex="120px" fxFlex.lt-md>
-                <input type="number" matInput step="0.01" formControlName="price" placeholder="ราคา/หน่วย" required />
-              </mat-form-field>
+        </div>
+        <item-data-array formArrayName="details" [createItemCallback]="createDetail" required activeMedia>
+          <item-data-array-item *ngFor="let item of form.get('details').controls; let i=index" [index]="i" [layout]="row">
+            <div [formGroupName]="i" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+              <div fxLayout="column" fxFlex fxFlex.xs="auto" [style.gt-xs]="{borderRight: '1px solid black'}">
+                <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+                  <cs-cost-item-control formControlName="_costItem" placeholder="รายการสินค้า{{ getCostItemPlaceholderSuffix(i) }}" freeEnter
+                    fxFlex.gt-md>
+                    <cs-error-message class="cs-error-message"></cs-error-message>
+                  </cs-cost-item-control>
+                  <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                    <input matInput formControlName="unit" placeholder="หน่วย" required />
+                  </mat-form-field>
+                  <mat-form-field fxFlex="120px" fxFlex.lt-md>
+                    <input type="number" matInput step="0.01" formControlName="price" placeholder="ราคา/หน่วย" required />
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+                  <cs-project-boq-data-control formControlName="boqData" [projectBoq]="form.get('boq').value" fxFlex.gt-md></cs-project-boq-data-control>
+                  <mat-form-field fxFlex.lt-md>
+                    <input matInput formControlName="remark" placeholder="หมายเหตุ" required />
+                    <mat-error>
+                      <cs-form-control-error></cs-form-control-error>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+                <mat-form-field fxFlex="120px" fxFlex.xs="auto">
+                  <input type="number" matInput step="0.01" formControlName="quantity" placeholder="ปริมาณ" required />
+                </mat-form-field>
+                <mat-form-field fxFlex="120px" fxFlex.xs="auto">
+                  <input type="number" matInput step="0.01" formControlName="_total" readonly placeholder="ราคารวม" />
+                </mat-form-field>
+              </div>
             </div>
-            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
-              <cs-project-boq-data-control formControlName="boqData" [projectBoq]="form.get('boq').value" fxFlex.gt-md></cs-project-boq-data-control>
-              <mat-form-field fxFlex.lt-md>
-                <input matInput formControlName="remark" placeholder="หมายเหตุ" required />
-                <mat-error>
-                  <cs-form-control-error></cs-form-control-error>
-                </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
+          </item-data-array-item>
+        </item-data-array>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+          <div fxLayout="column" fxFlex fxFlex.xs="auto"></div>
           <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
+            <div fxFlex="120px" fxFlex.xs="auto"></div>
             <mat-form-field fxFlex="120px" fxFlex.xs="auto">
-              <input type="number" matInput step="0.01" formControlName="quantity" placeholder="ปริมาณ" required />
-            </mat-form-field>
-            <mat-form-field fxFlex="120px" fxFlex.xs="auto">
-              <input type="number" matInput step="0.01" formControlName="_total" readonly placeholder="ราคารวม" />
+              <input type="number" matInput step="0.01" formControlName="total" readonly placeholder="ราคารวมทั้งหมด" />
             </mat-form-field>
           </div>
         </div>
-      </item-data-array-item>
-    </item-data-array>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
-      <div fxLayout="column" fxFlex fxFlex.xs="auto"></div>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
-        <div fxFlex="120px" fxFlex.xs="auto"></div>
-        <mat-form-field fxFlex="120px" fxFlex.xs="auto">
-          <input type="number" matInput step="0.01" formControlName="total" readonly placeholder="ราคารวมทั้งหมด" />
-        </mat-form-field>
-      </div>
-    </div>
-  </cs-section-block>
+      </cs-section-block>
 
-</cs-data-form>
+    </cs-data-form>
+  </div>
+</div>

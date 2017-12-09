@@ -1,86 +1,227 @@
 <cs-data-view *ngIf="item" i3eParentProcessor>
 
-  <cs-section-block header="ข้อมูลโครงการ" level="3" class="cl-view-display">
-    <div>
-      <label>ชื่อโครงการ : </label>
-      <span>{{ item.name }}</span>
-    </div>
-    <cs-section-block header="1.ข้อมูลเจ้าของโครงการ" class="cl-view-display">
-      <div>
-        <label>เจ้าของโครงการ : </label>
-        <span>{{ item.owner }}</span>
-      </div>
-    </cs-section-block>
-
-    <cs-section-block header="2.ข้อมูลที่อยู่โครงการ" class="cl-view-display">
-      <div>
-        <label>ที่อยู่โครงการ : </label>
-        <span>{{ item.address }}</span>
-      </div>
-      <div>
-        <label>โทรศัพท์ : </label>
-        <span>{{ item.phone }}</span>
-      </div>
-      <div>
-        <label>แฟ็กซ์ : </label>
-        <span>{{ item.fax }}</span>
-      </div>
-    </cs-section-block>
-
-    <cs-section-block header="3.ข้อมูลผู้ติดต่อ" class="cl-view-display">
-      <div *ngFor="let contact of item.contacts; let i=index">
-        <label>ผู้ติดต่อ {{ i + 1 }}</label>
+  <!-- Old Style -->
+  <!-- <div class="container">
+    <div class="box-card-20">
+      <cs-section-block header="ข้อมูลโครงการ" level="3" class="cl-view-display">
         <div>
-          <label>ชื่อเรียก : </label>
-          <span>{{ contact.alias }}</span>
+          <label>ชื่อโครงการ : </label>
+          <span>{{ item.name }}</span>
         </div>
-        <div>
-          <label>ตำแหน่ง : </label>
-          <span>{{ contact.position }}</span>
-        </div>
-        <div>
-          <label>E-mail : </label>
-          <span>{{ contact.email }}</span>
-        </div>
-        <div>
-          <label>Line ID : </label>
-          <span>{{ contact.lineId }}</span>
-        </div>
-        <div>
-          <label>เบอร์โทรติดต่อ : </label>
-          <div style="display: inline-block; vertical-align: top; margin-top: 0px;">
-            <div *ngFor="let phone of contact.phones">{{ phone.phone }}</div>
+        <cs-section-block header="1.ข้อมูลเจ้าของโครงการ" class="cl-view-display">
+          <div>
+            <label>เจ้าของโครงการ : </label>
+            <span>{{ item.owner }}</span>
           </div>
+        </cs-section-block>
+
+        <cs-section-block header="2.ข้อมูลที่อยู่โครงการ" class="cl-view-display">
+          <div>
+            <label>ที่อยู่โครงการ : </label>
+            <span>{{ item.address }}</span>
+          </div>
+          <div>
+            <label>โทรศัพท์ : </label>
+            <span>{{ item.phone }}</span>
+          </div>
+          <div>
+            <label>แฟ็กซ์ : </label>
+            <span>{{ item.fax }}</span>
+          </div>
+        </cs-section-block>
+
+        <cs-section-block header="3.ข้อมูลผู้ติดต่อ" class="cl-view-display">
+          <div *ngFor="let contact of item.contacts; let i=index">
+            <label>ผู้ติดต่อ {{ i + 1 }}</label>
+            <div>
+              <label>ชื่อเรียก : </label>
+              <span>{{ contact.alias }}</span>
+            </div>
+            <div>
+              <label>ตำแหน่ง : </label>
+              <span>{{ contact.position }}</span>
+            </div>
+            <div>
+              <label>E-mail : </label>
+              <span>{{ contact.email }}</span>
+            </div>
+            <div>
+              <label>Line ID : </label>
+              <span>{{ contact.lineId }}</span>
+            </div>
+            <div>
+              <label>เบอร์โทรติดต่อ : </label>
+              <div style="display: inline-block; vertical-align: top; margin-top: 0px;">
+                <div *ngFor="let phone of contact.phones">{{ phone.phone }}</div>
+              </div>
+            </div>
+          </div>
+        </cs-section-block>
+
+        <cs-section-block header="4.ข้อมูลบัญชีธนาคาร" class="cl-view-display">
+          <div *ngFor="let bankAccount of item.bankAccounts; let i=index">
+            <label>บัญชี {{ i + 1 }}</label>
+            <div>
+              <label>เลขที่บัญชี : </label>
+              <span>{{ bankAccount.code }}</span>
+            </div>
+            <div>
+              <label>ชื่อบัญชี : </label>
+              <span>{{ bankAccount.name }}</span>
+            </div>
+            <div>
+              <label>ประเภทบัญชี : </label>
+              <span>{{ bankAccount.category }}</span>
+            </div>
+            <div>
+              <label>ธนาคาร : </label>
+              <span>{{ bankAccount.bank }}</span>
+            </div>
+            <div>
+              <label>สาขา : </label>
+              <span>{{ bankAccount.branch }}</span>
+            </div>
+          </div>
+        </cs-section-block>
+      </cs-section-block>
+
+      <!-- <pre>{{ item | json }}</pre> -->
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- end odl style -->
+
+
+
+  <div class="container">
+    <div class="box-card-20">
+
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+        <h3>ข้อมูลโครงการ</h3>
+
+
+        <div class="card">
+          <label class="card-header">{{ item.name }}</label>
+          <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+
+            <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+              <label for="ชื่อโครงการ">เจ้าของโครงการ</label>
+              <input type="text" class="form-control" value="{{ item.owner }}" readonly>
+            </div>
+
+
+            <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+              <label for="ชื่อโครงการ">ที่อยู่โครงการ</label>
+              <!-- <textarea name="address" id="address" rows="4">
+              {{ item.address }} {{ item.phone }} {{ item.fax }}
+          </textarea> -->
+              <input type="text" class="form-control" value="{{ item.address }} {{ item.phone }} {{ item.fax }}" readonly>
+            </div>
+
+          </div>
+
         </div>
       </div>
-    </cs-section-block>
 
-    <cs-section-block header="4.ข้อมูลบัญชีธนาคาร" class="cl-view-display">
-      <div *ngFor="let bankAccount of item.bankAccounts; let i=index">
-        <label>บัญชี {{ i + 1 }}</label>
-        <div>
-          <label>เลขที่บัญชี : </label>
-          <span>{{ bankAccount.code }}</span>
-        </div>
-        <div>
-          <label>ชื่อบัญชี : </label>
-          <span>{{ bankAccount.name }}</span>
-        </div>
-        <div>
-          <label>ประเภทบัญชี : </label>
-          <span>{{ bankAccount.category }}</span>
-        </div>
-        <div>
-          <label>ธนาคาร : </label>
-          <span>{{ bankAccount.bank }}</span>
-        </div>
-        <div>
-          <label>สาขา : </label>
-          <span>{{ bankAccount.branch }}</span>
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+        <label for="contact">
+          <h4>ข้อมูลผู้ติดต่อ</h4>
+        </label>
+
+        <div *ngFor="let contact of item.contacts; let i=index">
+          <div class="card">
+            <label class="card-header">ผู้ติดต่อ {{ i + 1 }} {{ contact.alias }} </label>
+            <div class="card-block" style="padding-left: 20px; padding-right: 20px">
+
+              <div class="row">
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <label for="position">ตำแหน่ง</label>
+                  <input type="text" class="form-control" value="{{ contact.position }}" readonly>
+                </div>
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-3 col-ls-3">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" value="{{ contact.email }}" readonly>
+                </div>
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-3 col-ls-3">
+                  <label for="lineId">Line ID</label>
+                  <input type="text" class="form-control" value="{{ contact.lineId }}" readonly>
+                </div>
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-3 col-ls-3">
+                  <label for="lineId">Phone</label>
+                  <div *ngFor="let phone of contact.phones">
+                    <input type="text" class="form-control" value="{{ phone.phone }}" readonly>
+                  </div>
+                </div>
+
+              </div>
+              <br>
+
+            </div>
+          </div>
+          <br>
         </div>
       </div>
-    </cs-section-block>
-  </cs-section-block>
 
-  <pre>{{ item | json }}</pre>
+
+      <div class="label-input-form  col-xs-12 col-sm-12 col-md-12 col-ls-12">
+        <h4>ข้อมูลบัญชีธนาคาร</h4>
+        <div *ngFor="let bankAccount of item.bankAccounts; let i=index">
+          <div class="card">
+            <label class="card-header">บัญชีธนาคารลำดับที่ {{ i + 1 }} </label>
+            <div class="card-block" style="padding-left: 20px; padding-right: 20px">
+
+              <div class="row">
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <label for="ชื่อโครงการ">เลขที่บัญชี</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.code }}" readonly>
+                </div>
+
+
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <label for="ชื่อโครงการ">ชื่อบัญชี</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.name }}" readonly>
+                </div>
+
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-4 col-ls-4">
+                  <label for="ชื่อโครงการ">ประเภทบัญชี</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.category }}" readonly>
+                </div>
+
+
+
+              </div>
+
+              <div class="row">
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-4 col-ls-4">
+                  <label for="ชื่อโครงการ">ธนาคาร</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.bank }}" readonly>
+                </div>
+
+
+
+                <div class="label-input-form  col-xs-12 col-sm-12 col-md-4 col-ls-4">
+                  <label for="ชื่อโครงการ">สาขา</label>
+                  <input type="text" class="form-control" value="{{ bankAccount.branch }}" readonly>
+                </div>
+
+
+              </div>
+              <br>
+
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </cs-data-view>

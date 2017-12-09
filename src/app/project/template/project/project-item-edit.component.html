@@ -1,30 +1,33 @@
-<cs-data-form *ngIf="form"  i3eParentProcessor [formGroup]="form">
+<div class="container">
+  <div class="box-card-20">
+    <cs-data-form *ngIf="form" i3eParentProcessor [formGroup]="form">
 
-  <cs-section-block header="ข้อมูลโครงการ" level="3">
-    <mat-form-field>
-      <input type="text" matInput formControlName="name" placeholder="ชื่อโครงการ" />
-    </mat-form-field>
+      <cs-section-block header="ข้อมูลโครงการ" level="3">
+        <mat-form-field>
+          <input type="text" matInput formControlName="name" placeholder="ชื่อโครงการ" />
+        </mat-form-field>
 
-    <cs-section-block header="1.ข้อมูลเจ้าของโครงการ">
-      <cs-person-control formControlName="owner"></cs-person-control>
-    </cs-section-block>
+        <cs-section-block header="1.ข้อมูลเจ้าของโครงการ">
+          <cs-person-control formControlName="owner"></cs-person-control>
+        </cs-section-block>
 
-    <cs-section-block header="2.ข้อมูลที่อยู่โครงการ">
-      <cs-address formGroupName="address"></cs-address>
-    </cs-section-block>
+        <cs-section-block header="2.ข้อมูลที่อยู่โครงการ">
+          <cs-address formGroupName="address"></cs-address>
+        </cs-section-block>
 
-    <cs-section-block header="3.ข้อมูลผู้ติดต่อ">
-      <cs-contact-array formArrayName="contacts"></cs-contact-array>
-    </cs-section-block>
+        <cs-section-block header="3.ข้อมูลผู้ติดต่อ">
+          <cs-contact-array formArrayName="contacts"></cs-contact-array>
+        </cs-section-block>
 
-    <cs-section-block header="4.ข้อมูลบัญชีธนาคาร">
-      <cs-array-source-control formControlName="bankAccounts"
-        [source]="allowedBankAccounts" [compareWith]="compareWith"></cs-array-source-control>
-    </cs-section-block>
+        <cs-section-block header="4.ข้อมูลบัญชีธนาคาร">
+          <cs-array-source-control formControlName="bankAccounts" [source]="allowedBankAccounts" [compareWith]="compareWith"></cs-array-source-control>
+        </cs-section-block>
 
-    <cs-section-block header="5.ข้อมูลผู้รับผิดชอบโครงการ">
-      <cs-employee-array-control formControlName="workers"></cs-employee-array-control>
-    </cs-section-block>
-  </cs-section-block>
+        <cs-section-block header="5.ข้อมูลผู้รับผิดชอบโครงการ">
+          <cs-employee-array-control formControlName="workers"></cs-employee-array-control>
+        </cs-section-block>
+      </cs-section-block>
 
-</cs-data-form>
+    </cs-data-form>
+  </div>
+</div>

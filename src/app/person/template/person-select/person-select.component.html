@@ -1,5 +1,7 @@
 <h2>ประเภทบุคคล (Type of Person)</h2>
+
 <mat-nav-list>
+<div class="box-card-20">
   <ng-template ngFor let-route [ngForOf]="routes">
     <a mat-list-item *ngIf="route.path !== ''"
       [csDataListSelected]="['../', route.path]" [extra]="{replaceUrl: true}">
@@ -7,4 +9,5 @@
       <div mat-line class="list-second-line">{{ route.data.description }}</div>
     </a>
   </ng-template>
+</div>
 </mat-nav-list>

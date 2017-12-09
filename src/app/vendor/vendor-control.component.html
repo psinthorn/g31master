@@ -1,9 +1,10 @@
-<div class="component-container">
+
   <div fxLayout="row" fxLayout.xs="column">
     <cs-searchable-control fxFlex fxFlex.xs="0 0 auto"
       [formControl]="formControl" [itemsAutoComplete]="itemsAutoComplete"
       labelWith="ผู้ขาย{{ (value && value.code)? ' (' + value.code + ')' : '' }}"
       (searchChange)="search($event)" (dataTouch)="markAsTouched()">
+    
       <mat-autocomplete #itemsAutoComplete="matAutocomplete" [displayWith]="displayWith">
         <mat-option *ngFor="let item of items$ | async" [value]="item">
           <div fxLayout="row" fxLayoutAlign="start center" class="option-container">
@@ -18,4 +19,4 @@
       </mat-autocomplete>
     </cs-searchable-control>
   </div>
-</div>
+

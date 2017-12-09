@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>-->
-      <!--
+  <!--
       <item-data-array formArrayName="details" [createItemCallback]="createDetail" required activeMedia>
         <item-data-array-item *ngFor="let item of form.get('details').controls; let i=index" [index]="i"
           [layout]="row">
@@ -116,162 +116,290 @@
         </item-data-array-item>
       </item-data-array>
       -->
-    <!--</cs-section-block>
+  <!--</cs-section-block>
 
   </cs-section-block>-->
   <!--<pre>{{ item | i3eJson }}</pre>-->
 
-<div class="container">
+  <div class="container">
 
-  <br>
-  <br>
-  <h4>1.ข้อมูลโครงการ</h4>
-  <hr>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">ชื่อโครงการ</p>
-      <input type="text" class="form-control" value="{{ item.project }}" readonly>
+
+    <br>
+    <h4>1.ข้อมูลโครงการ</h4>
+
+    <div class="label-input-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="card">
+        <!--<label class="card-header"><label class="text-dark"></label></label>-->
+        <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+          <div class="row">
+            <div class="label-input-form col-sm-12 col-md-6 col-lg-6">
+              <label class="text-dark">ชื่อโครงการ</label>
+              <input type="text" class="form-control" value="{{ item.project }}" readonly>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label-input-form col-sm-12 col-md-12 col-lg-12">
+              <label class="text-dark">ที่อยู่จัดส่ง</label>
+              <textarea class="form-control" rows="5" readonly>{{ item.project.address }}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">ที่อยู่จัดส่ง</p>
-      <input type="text" class="form-control" value="{{ item.project.address }}" readonly>  
+
+    <br>
+
+    <h4>2.ข้อมูลผู้ขอ</h4>
+
+
+    <div class="label-input-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="card">
+        <!--<label class="card-header"><label class="text-dark"></label></label>-->
+        <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+          <div class="row">
+            <div class="label-input-form col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <label class="text-dark">พนักงาน</label>
+              <input type="text" class="form-control" value="{{ item.requester }}" readonly>
+            </div>
+            <div class="label-input-form col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <label class="text-dark">ผู้ติดต่อ</label>
+              <input type="text" class="form-control" value="{{ item.contactInformation }}" readonly>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
- <br>
-  <br>
- <h4>2.ข้อมูลผู้ขอ</h4>
- <hr>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">พนักงาน</p>
-      <input type="text" class="form-control" value="{{ item.requester }}" readonly>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">ผู้ติดต่อ</p>
-      <input type="text" class="form-control" value="{{ item.contactInformation }}" readonly>  
-    </div>
-  </div>
+    <br>
+    <h4>3.ข้อมูลผู้ขาย/รับจ้าง/เช่า</h4>
+    <div class="label-input-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-  <br>
-  <br>
-  <h4>3.ข้อมูลผู้ขาย/รับจ้าง/เช่า</h4>
-  <hr>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">ผู้ขาย</p>
-      <input type="text" class="form-control" value="{{ item.vendor }}" readonly>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <p class="text-secondary">ผู้ติดต่อ</p>
-      <input type="text" class="form-control" value="{{ item.vendorContactInformation }}" readonly>  
-    </div>
-  </div>
-
-  <br>
-  <br>
-  <h4>4.ข้อมูลสินค้า</h4>
-  <hr>
-
-
-  <div class="row">
-
-   
-
-      <div class="col-sm-12 col-md-4 col-lg-4">
-        <p class="text-secondary">วันที่ต้องการ</p>
-        <input type="text" class="form-control" value="{{ item.wantedDate }}" readonly>  
-     </div>
-
-     <div class="col-sm-12 col-md-4 col-lg-4">
-        <p class="text-secondary">BOQ</p>
-        <input type="text" class="form-control" value="{{ item.boq.name }}" readonly>  
-     </div>
-
-     <div class="col-sm-12 col-md-4 col-lg-4">
-        <p class="text-secondary">ประเภทรายการต้นทุน</p>
-        <input type="text" class="form-control" value="{{ item.budgetType.name}}" readonly>  
-     </div>
-
-
-  
-  </div>
-
-  <br>
-  <br>
-  <br>
-
-<div class="row">     
-   
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <p class="text-secondary">รายการสินค้า</p>
-     
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <p class="text-secondary">หน่วย</p>
-      
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <p class="text-secondary">ราคา/หน่วย</p>
-      
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <p class="text-secondary">ปริมาณ</p>
-      
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      
-      <p class="text-secondary">ราคารวม</p>
-      
-    </div>
-  </div>
-
- <div *ngFor="let detail of item.details">
-  <div class="row" style="padding-bottom: 2px">     
-   
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <!--<p class="text-secondary">รายการสินค้า</p>-->
-      <input type="text" class="form-control" value="{{ detail.name }}" readonly>
-        <div class="container">
+      <div class="card">
+        <!--<label class="card-header"><label class="text-dark"></label></label>-->
+        <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
 
           <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-4">
-              <p class="text-secondary">Budget</p>
+            <div class="label-input-form col-sm-12 col-md-6 col-lg-6">
+              <label class="text-dark">ผู้ขาย</label>
+              <input type="text" class="form-control" value="{{ item.vendor }}" readonly>
             </div>
-          </div>  
+            <div class="label-input-form col-sm-12 col-md-6 col-lg-6">
+              <label class="text-dark">ผู้ติดต่อ</label>
+              <input type="text" class="form-control" value="{{ item.vendorContactInformation }}" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br>
+
+    <h4>4.ข้อมูลสินค้า</h4>
+    <div class="label-input-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      <div class="card">
+        <!--<label class="card-header"><label class="text-dark"></label></label>-->
+        <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px">
+
 
           <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-4">
-              <p class="text-secondary">{{ detail.remark }}</p>
+
+
+
+            <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+              <label class="text-secondary">วันที่ต้องการ</label>
+              <input type="text" class="form-control" value="{{ item.wantedDate }}" readonly>
             </div>
-          </div>  
+
+            <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+              <label class="text-secondary">BOQ</label>
+              <input type="text" class="form-control" value="{{ item.boq.name }}" readonly>
+            </div>
+
+            <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+              <label class="text-secondary">ประเภทรายการต้นทุน</label>
+              <input type="text" class="form-control" value="{{ item.budgetType.name}}" readonly>
+            </div>
+
+          </div>
 
         </div>
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <!--<p class="text-secondary">หน่วย</p>-->
-      <input type="text" class="form-control" value="{{ detail.unit }}" readonly>  
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <!--<p class="text-secondary">ราคา/หน่วย</p>-->
-      <input type="text" class="form-control" value="{{ detail.price }}" readonly>  
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      <!--<p class="text-secondary">ปริมาณ</p>-->
-      <input type="text" class="form-control" value="{{ detail.quantity }}" readonly>  
-    </div>
-    <div class="col-sm-12 col-md-2 col-lg-2">
-      
-      <!--<p class="text-secondary">ราคารวม</p>-->
-      <input type="text" class="form-control" value="{{ (detail.price * detail.quantity).toFixed(2) }}" readonly>  
-    </div>
-  </div>
-    <hr>
-    <br>
-  </div>
-</div>
+      </div>
+      <br>
 
+
+
+
+      <div class="d-none d-md-block">
+        <div class="container">
+          <div class="row">
+
+            <div class="label-input-form col-sm-12 col-md-1 col-lg-1">
+
+              <label class="text-dark">ลำดับ</label>
+
+            </div>
+
+            <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+
+              <label class="text-dark">รายการสินค้า</label>
+
+            </div>
+            <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+              <label class="text-dark">หน่วย</label>
+
+            </div>
+            <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+              <label class="text-dark">ราคา/หน่วย</label>
+
+            </div>
+            <div class="label-input-form col-sm-12 col-md-1 col-lg-1">
+              <label class="text-dark">ปริมาณ</label>
+
+            </div>
+            <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+
+              <label class="text-dark">ราคารวม</label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div *ngFor="let detail of item.details; let i = index">
+        <div class="card">
+          <!--<label class="card-header"><label class="text-dark"></label></label>-->
+          <div class="card-block" style="padding-left: 20px; padding-right: 20px; padding-bottom: 30px">
+
+
+
+
+
+            <div class="row" style="padding-bottom: 2px">
+
+              <div class="label-input-form col-sm-12 col-md-1 col-lg-1">
+
+
+                <!--<label class="text-secondary"></label>-->
+                <input type="text" class="form-control" style="text-align: center" value="{{ i + 1 }}" readonly>
+                <!--<span class="badge badge-pill badge-info" style="text-align: center"> {{ i + 1 }}</span>-->
+
+              </div>
+
+
+
+
+
+
+              <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">รายการสินค้า</label>
+                </div>
+                <textarea class="form-control" readonly>{{ detail.name }}</textarea>
+
+                <!--<div class="container">
+
+                  <div class="row">
+                    <div class="d-block d-sm-none">
+                      <label class="text-dark">Budget</label>
+                    </div>
+                    <textarea class="form-control" readonly>{{ detail.budget }}</textarea>
+                  </div>
+                </div>
+
+
+                <div class="row" *ngIf="detail.remark">
+
+                  <div class="label-input-form col-sm-12 col-md-4 col-lg-4">
+                    <div class="d-block d-sm-none">
+                      <label class="text-secondary">หมายเหตุ</label>
+                    </div>
+                    <textarea class="form-control" readonly>{{ detail.remark }}</textarea>
+                    <div class="container">
+
+                    </div>
+                  </div>
+
+                </div>-->
+              </div>
+
+
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">หน่วย</label>
+                </div>
+                <input type="text" class="form-control input-sm" value="{{ detail.unit }}" readonly>
+              </div>
+
+
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">ราคา/หน่วย</label>
+                </div>
+                <input type="text" class="form-control input-sm" style="text-align:right;" value="{{ detail.price }}" readonly>
+              </div>
+              <div class="label-input-form col-sm-12 col-md-1 col-lg-1">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">ปริมาณ</label>
+                </div>
+                <!--<label class="text-dark">ปริมาณ</label>-->
+                <input type="text" class="form-control input-sm" style="text-align:right;" value="{{ detail.quantity }}" readonly>
+              </div>
+              <!--
+            <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+
+
+              <div class="d-block d-sm-none">
+                <label class="text-secondary">ต้นทุนกิจกรรม</label>
+              </div>
+              <textarea class="form-control" readonly>{{ detail.budget }}</textarea>
+
+            </div>
+
+
+            <div *ngIf="detail.remark">
+
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">หมายเหตุ</label>
+                </div>
+                <textarea class="form-control" readonly>{{ detail.remark }}</textarea>
+
+              </div>
+
+            </div>-->
+
+
+
+
+
+
+              <div class="label-input-form col-sm-12 col-md-2 col-lg-2">
+                <div class="d-block d-sm-none">
+                  <label class="text-secondary">ราคารวม</label>
+                </div>
+                <!--<label class="text-dark">ราคารวม</label>-->
+                <input type="text" class="form-control input-sm" style="text-align:right;" value="{{ (detail.price * detail.quantity).toFixed(2) }}"
+                  readonly>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
 </cs-data-view>
