@@ -32,16 +32,13 @@
       </mat-form-field>
     </cs-section-block>
 
-    <cs-section-block header="4.ข้อมูลสินค้า" level="4">
+    <cs-section-block header="4.ข้อมูลสินค้า" level="4" i3eDataLoader="existing" [existingData]="form.get('project').value" csProjectItemLoader>
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0px">
         <mat-form-field fxFlex.gt-xs="160px">
           <input type="date" matInput formControlName="wantedDate" placeholder="วันที่ต้องการ" style="width: 100%;" required />
         </mat-form-field>
 
-        <cs-project-boq-control formControlName="boq"
-          i3eDataLoader="existing" [existingData]="form.get('project').value"
-          csProjectItemLoader
-          fxFlex.gt-xs="240px"></cs-project-boq-control>
+        <cs-project-boq-control formControlName="boq" fxFlex.gt-xs="240px"></cs-project-boq-control>
 
         <cs-project-boq-budget-type-control formControlName="budgetType" [projectBoq]="form.get('boq').value" fxFlex.gt-xs="240px"></cs-project-boq-budget-type-control>
 
