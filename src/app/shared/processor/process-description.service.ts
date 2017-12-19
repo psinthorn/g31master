@@ -13,6 +13,12 @@ export class ProcessDescriptionService {
     print: { icon: 'print', color: 'primay' },
 
     save: { icon: 'save', color: 'primary' },
+
+    // TODO: must move to external module
+    replace: { icon: 'edit', color: 'primary' },
+    cancel: { icon: 'delete_forever', color: 'warn' },
+    reject: { icon: 'block', color: 'warn' },
+
   };
 
   constructor(
